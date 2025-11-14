@@ -1,0 +1,192 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --color-red: #FF0000;
+  --color-navy: #003366;
+  --color-white: #FFFFFF;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-red: var(--color-red);
+  --color-navy: var(--color-navy);
+  --color-white: var(--color-white);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  background-image: url('/images/fall-season-png-transparent-background-with-maple-leaves_53876-943268.avif');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  color: var(--foreground);
+  font-family: Lato, Avenir, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  position: relative;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(236, 32, 39, 0.1);
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Custom menu styles */
+.custom-menu-primary a {
+  font-size: 14px;
+  text-decoration: none;
+  vertical-align: middle;
+  font-weight: bold !important;
+}
+
+a {
+  color: #ec2027;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all .3s ease;
+}
+
+*, :after, :before {
+  box-sizing: border-box;
+}
+
+@media (max-width: 1070px) and (min-width: 851px) {
+  body .custom-menu-primary .hs-menu-wrapper>ul>li>a {
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 991px) {
+  .custom-menu-primary .hs-menu-wrapper ul li a {
+    font-size: 12px;
+  }
+}
+
+/* Authentic Canadian Maple Leaf Background Elements */
+.maple-leaf-bg::before {
+  content: '';
+  position: absolute;
+  top: 12%;
+  left: 2%;
+  width: 120px;
+  height: 120px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50 5c-3 8-8 6-12 15s3 12 0 21c-3 9-6 6-9 12s-3 9 0 15c3 6 9 3 15 0s6-6 12-3c6 3 9-3 12-6s3-12 0-18c-3-6-9-3-12-9s-3-15-6-18z M35 25c1 2 3 1 4 3s-1 3-3 3c-2 0-3-1-3-3s1-3 2-3z M65 25c1 2 1 4-1 4s-3-1-3-3 1-3 2-3 1 1 2 2z M50 45c2 1 3 3 1 4s-4 0-5-2 1-3 2-3 1 1 2 1z' fill='%23ec2027'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  z-index: -1;
+  animation: gentle-float 8s ease-in-out infinite;
+}
+
+.maple-leaf-bg::after {
+  content: '';
+  position: absolute;
+  bottom: 15%;
+  right: 3%;
+  width: 100px;
+  height: 100px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50 5c-3 8-8 6-12 15s3 12 0 21c-3 9-6 6-9 12s-3 9 0 15c3 6 9 3 15 0s6-6 12-3c6 3 9-3 12-6s3-12 0-18c-3-6-9-3-12-9s-3-15-6-18z M35 25c1 2 3 1 4 3s-1 3-3 3c-2 0-3-1-3-3s1-3 2-3z M65 25c1 2 1 4-1 4s-3-1-3-3 1-3 2-3 1 1 2 2z M50 45c2 1 3 3 1 4s-4 0-5-2 1-3 2-3 1 1 2 1z' fill='%23ec2027'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  z-index: -1;
+  animation: gentle-float-reverse 10s ease-in-out infinite;
+}
+
+/* Additional floating maple leaves */
+.maple-leaf-bg .maple-leaf-1 {
+  position: absolute;
+  top: 25%;
+  right: 8%;
+  width: 60px;
+  height: 60px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50 5c-3 8-8 6-12 15s3 12 0 21c-3 9-6 6-9 12s-3 9 0 15c3 6 9 3 15 0s6-6 12-3c6 3 9-3 12-6s3-12 0-18c-3-6-9-3-12-9s-3-15-6-18z' fill='%23ec2027'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  z-index: -1;
+  animation: drift 12s ease-in-out infinite;
+}
+
+.maple-leaf-bg .maple-leaf-2 {
+  position: absolute;
+  top: 55%;
+  left: 5%;
+  width: 80px;
+  height: 80px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50 5c-3 8-8 6-12 15s3 12 0 21c-3 9-6 6-9 12s-3 9 0 15c3 6 9 3 15 0s6-6 12-3c6 3 9-3 12-6s3-12 0-18c-3-6-9-3-12-9s-3-15-6-18z' fill='%23ec2027'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  z-index: -1;
+  animation: drift-reverse 15s ease-in-out infinite;
+}
+
+.maple-leaf-bg .maple-leaf-3 {
+  position: absolute;
+  bottom: 35%;
+  left: 15%;
+  width: 50px;
+  height: 50px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50 5c-3 8-8 6-12 15s3 12 0 21c-3 9-6 6-9 12s-3 9 0 15c3 6 9 3 15 0s6-6 12-3c6 3 9-3 12-6s3-12 0-18c-3-6-9-3-12-9s-3-15-6-18z' fill='%23ec2027'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  z-index: -1;
+  animation: gentle-float 18s ease-in-out infinite;
+}
+
+@keyframes gentle-float {
+  0%, 100% { transform: translateY(0px) rotate(0deg) scale(1); }
+  33% { transform: translateY(-15px) rotate(3deg) scale(1.05); }
+  66% { transform: translateY(10px) rotate(-2deg) scale(0.95); }
+}
+
+@keyframes gentle-float-reverse {
+  0%, 100% { transform: translateY(0px) rotate(0deg) scale(1); }
+  33% { transform: translateY(15px) rotate(-3deg) scale(0.95); }
+  66% { transform: translateY(-10px) rotate(2deg) scale(1.05); }
+}
+
+@keyframes drift {
+  0%, 100% { transform: translateX(0px) translateY(0px) rotate(0deg); }
+  25% { transform: translateX(10px) translateY(-8px) rotate(2deg); }
+  50% { transform: translateX(-5px) translateY(-15px) rotate(-1deg); }
+  75% { transform: translateX(8px) translateY(-5px) rotate(3deg); }
+}
+
+@keyframes drift-reverse {
+  0%, 100% { transform: translateX(0px) translateY(0px) rotate(0deg); }
+  25% { transform: translateX(-10px) translateY(8px) rotate(-2deg); }
+  50% { transform: translateX(5px) translateY(15px) rotate(1deg); }
+  75% { transform: translateX(-8px) translateY(5px) rotate(-3deg); }
+}
+
+/* Consistent Button Styles */
+.btn-primary {
+  @apply bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white px-8 py-4 rounded-full font-bold text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-xl shadow-lg;
+}
+
+.btn-secondary {
+  @apply bg-gradient-to-r from-blue-800 to-blue-900 hover:from-blue-900 hover:to-black text-white px-8 py-4 rounded-full font-bold text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-xl shadow-lg;
+}
+
+.btn-outline {
+  @apply bg-gradient-to-r from-gray-200 to-gray-300 hover:from-gray-300 hover:to-gray-400 text-gray-800 px-8 py-4 rounded-full font-bold text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-xl shadow-lg border-2 border-gray-300;
+}
