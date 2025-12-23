@@ -2,76 +2,145 @@ import Link from 'next/link';
 
 export default function Footer() {
   return (
-    <footer className="bg-red-600 text-white py-16">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col md:flex-row gap-8 mb-12">
-          {/* Part 1: Logo and Description */}
-           <div className="md:flex-1">
-            <div className="flex items-center mb-6">
-              <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center mr-3">
-                <span className="text-red-600 font-bold text-xl">M</span>
-              </div>
-              <div>
-                <h3 className="text-lg font-bold text-white">Maplewood International School</h3>
-                <p className="text-white text-sm">Hyderabad</p>
-              </div>
+    <footer className="text-[#3B1A17] relative overflow-hidden" style={{
+      background: 'rgba(245, 242, 235, 0.95)',
+      backdropFilter: 'blur(14px)',
+      WebkitBackdropFilter: 'blur(14px)',
+      borderTop: '1px solid rgba(214, 178, 94, 0.3)'
+    }}>
+      {/* Background Pattern */}
+      <div className="absolute inset-0 opacity-5">
+        <div className="absolute top-20 left-20 w-64 h-64 border border-[#D6B25E] rounded-full"></div>
+        <div className="absolute bottom-20 right-20 w-48 h-48 border border-[#D6B25E] rounded-full"></div>
+        <div className="absolute top-1/2 left-1/3 w-32 h-32 border border-[#D6B25E] rounded-full"></div>
+      </div>
+
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        {/* Main Footer Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 mb-12">
+          {/* Brand Section */}
+          <div className="lg:col-span-1">
+            <div className="mb-6">
+              <img
+                src="/images/mmm.png"
+                alt="Maple Ford International School Logo"
+                className="h-20 w-auto mb-4"
+              />
+              <h3 className="text-xl font-bold text-[#8B1E1A] mb-2">Maple Ford International School</h3>
+              <p className="text-[#5A1411] text-sm leading-relaxed">
+                Honoring three decades of educational excellence in Hayathnagar, Hyderabad.
+              </p>
             </div>
-            <p className="text-white leading-relaxed text-sm mb-4">
-              MCIS is a Canadian Curriculum School in Hyderabad that follows the Alberta Education Curriculum for KG1 to Grade 12.
+
+            {/* Social Links */}
+            <div className="flex space-x-4">
+              <a href="https://wa.me/919000568416" className="w-12 h-12 bg-[#D6B25E]/20 rounded-full flex items-center justify-center hover:bg-[#D6B25E]/30 transition-all duration-300 hover:scale-110">
+                <span className="text-[#8B1E1A] text-lg">📱</span>
+              </a>
+              <a href="tel:+919000568416" className="w-12 h-12 bg-[#D6B25E]/20 rounded-full flex items-center justify-center hover:bg-[#D6B25E]/30 transition-all duration-300 hover:scale-110">
+                <span className="text-[#8B1E1A] text-lg">📞</span>
+              </a>
+              <a href="mailto:info@mapleford.edu.in" className="w-12 h-12 bg-[#D6B25E]/20 rounded-full flex items-center justify-center hover:bg-[#D6B25E]/30 transition-all duration-300 hover:scale-110">
+                <span className="text-[#8B1E1A] text-lg">✉️</span>
+              </a>
+            </div>
+          </div>
+
+          {/* Quick Links */}
+          <div>
+            <h4 className="text-lg font-bold text-[#8B1E1A] mb-6">Quick Links</h4>
+            <ul className="space-y-3">
+              <li><Link href="/about" className="text-[#5A1411] hover:text-[#D6B25E] transition-colors duration-300 text-sm hover:translate-x-1 inline-block">About Us</Link></li>
+              <li><Link href="/admissions" className="text-[#5A1411] hover:text-[#D6B25E] transition-colors duration-300 text-sm hover:translate-x-1 inline-block">Admissions</Link></li>
+              <li><Link href="/programs" className="text-[#5A1411] hover:text-[#D6B25E] transition-colors duration-300 text-sm hover:translate-x-1 inline-block">Programs</Link></li>
+              <li><Link href="/vision" className="text-[#5A1411] hover:text-[#D6B25E] transition-colors duration-300 text-sm hover:translate-x-1 inline-block">Our Vision</Link></li>
+              <li><Link href="/contact" className="text-[#5A1411] hover:text-[#D6B25E] transition-colors duration-300 text-sm hover:translate-x-1 inline-block">Contact</Link></li>
+            </ul>
+          </div>
+
+          {/* Academics */}
+          <div>
+            <h4 className="text-lg font-bold text-[#8B1E1A] mb-6">Academics</h4>
+            <ul className="space-y-3">
+              <li><Link href="/programs" className="text-[#5A1411] hover:text-[#D6B25E] transition-colors duration-300 text-sm hover:translate-x-1 inline-block">Pre-School</Link></li>
+              <li><Link href="/programs" className="text-[#5A1411] hover:text-[#D6B25E] transition-colors duration-300 text-sm hover:translate-x-1 inline-block">Elementary School</Link></li>
+              <li><Link href="/programs" className="text-[#5A1411] hover:text-[#D6B25E] transition-colors duration-300 text-sm hover:translate-x-1 inline-block">High School</Link></li>
+              <li><Link href="/programs" className="text-[#5A1411] hover:text-[#D6B25E] transition-colors duration-300 text-sm hover:translate-x-1 inline-block">STEAM Education</Link></li>
+              <li><Link href="/programs" className="text-[#5A1411] hover:text-[#D6B25E] transition-colors duration-300 text-sm hover:translate-x-1 inline-block">Sports & Athletics</Link></li>
+            </ul>
+          </div>
+
+          {/* Campus & Community */}
+          <div>
+            <h4 className="text-lg font-bold text-[#8B1E1A] mb-6">Campus Life</h4>
+            <ul className="space-y-3">
+              <li><Link href="/campus" className="text-[#5A1411] hover:text-[#D6B25E] transition-colors duration-300 text-sm hover:translate-x-1 inline-block">Facilities</Link></li>
+              <li><Link href="/student-zone" className="text-[#5A1411] hover:text-[#D6B25E] transition-colors duration-300 text-sm hover:translate-x-1 inline-block">Student Zone</Link></li>
+              <li><Link href="/student-zone" className="text-[#5A1411] hover:text-[#D6B25E] transition-colors duration-300 text-sm hover:translate-x-1 inline-block">House System</Link></li>
+              <li><Link href="/blogs" className="text-[#5A1411] hover:text-[#D6B25E] transition-colors duration-300 text-sm hover:translate-x-1 inline-block">Blogs</Link></li>
+              <li><Link href="/careers" className="text-[#5A1411] hover:text-[#D6B25E] transition-colors duration-300 text-sm hover:translate-x-1 inline-block">Careers</Link></li>
+            </ul>
+          </div>
+        </div>
+
+        {/* Newsletter Section */}
+        <div className="bg-white/50 rounded-2xl p-8 mb-8 border border-[#D6B25E]/20 shadow-lg backdrop-blur-sm">
+          <div className="text-center">
+            <h4 className="text-xl font-bold text-[#8B1E1A] mb-2">Stay Connected</h4>
+            <p className="text-[#5A1411] text-sm mb-6 max-w-md mx-auto">
+              Join our community and receive updates on admissions, events, and school news.
             </p>
-          </div>
-
-          {/* Part 2: Links */}
-           <div className="md:flex-1">
-            <h4 className="text-lg font-bold mb-6 text-white">Links</h4>
-            <ul className="space-y-3">
-              <li><Link href="/about" className="text-white hover:text-red-200 transition duration-300 text-sm">About Us</Link></li>
-              <li><Link href="/admissions" className="text-white hover:text-red-200 transition duration-300 text-sm">Admissions</Link></li>
-              <li><Link href="/programs" className="text-white hover:text-red-200 transition duration-300 text-sm">Curriculum</Link></li>
-              <li><Link href="/programs" className="text-white hover:text-red-200 transition duration-300 text-sm">Facilities & Activities</Link></li>
-              <li><Link href="/contact" className="text-white hover:text-red-200 transition duration-300 text-sm">Contact Us</Link></li>
-            </ul>
-          </div>
-
-          {/* Part 3: Quick Links */}
-           <div className="md:flex-1">
-            <h4 className="text-lg font-bold mb-6 text-white">Quick Links</h4>
-            <ul className="space-y-3">
-              <li><Link href="/contact" className="text-white hover:text-red-200 transition duration-300 text-sm">Book a Visit</Link></li>
-              <li><Link href="#" className="text-white hover:text-red-200 transition duration-300 text-sm">News & Events</Link></li>
-              <li><Link href="#" className="text-white hover:text-red-200 transition duration-300 text-sm">School Policies</Link></li>
-              <li><Link href="#" className="text-white hover:text-red-200 transition duration-300 text-sm">Parents Hub</Link></li>
-            </ul>
-          </div>
-
-          {/* Part 4: Newsletter */}
-           <div className="md:flex-1">
-            <h4 className="text-lg font-bold mb-6 text-white">Newsletter</h4>
-            <div className="space-y-4">
+            <div className="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto">
               <input
                 type="email"
-                placeholder="Enter Your Email*"
-                className="w-full px-4 py-2 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-white text-sm"
+                placeholder="Enter your email address"
+                className="flex-1 px-4 py-3 rounded-xl bg-white/70 border border-[#D6B25E]/30 text-[#3B1A17] placeholder-[#5A1411]/60 focus:outline-none focus:ring-2 focus:ring-[#D6B25E] focus:border-transparent"
               />
-              <button className="w-full bg-white text-red-600 px-4 py-2 rounded-lg font-bold hover:bg-red-100 transition duration-300 text-sm">
+              <button className="px-8 py-3 bg-[#8B1E1A] text-white rounded-xl font-semibold hover:bg-[#5A1411] transition-all duration-300 hover:scale-105 shadow-lg">
                 Subscribe
               </button>
-              <div className="flex items-start">
-                <input type="checkbox" id="privacy" className="mr-2 mt-1 w-3 h-3 text-red-600 bg-white border-white rounded focus:ring-white" />
-                <label htmlFor="privacy" className="text-xs text-white leading-tight">
-                  I agree to the <Link href="#" className="text-white underline hover:text-red-200">Privacy Policy</Link>.
-                </label>
-              </div>
             </div>
           </div>
         </div>
 
-        {/* Copyright */}
-        <div className="border-t border-red-500 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-white text-center md:text-left text-sm">&copy; 2025 Maplewood International School Hyderabad. All rights reserved.</p>
-          <div className="flex space-x-6 mt-4 md:mt-0">
-            <Link href="#" className="text-white hover:text-red-200 text-sm transition duration-300">Terms & Conditions</Link>
-            <Link href="#" className="text-white hover:text-red-200 text-sm transition duration-300">Privacy Policy</Link>
+        {/* Contact Info Bar */}
+        <div className="bg-white/30 rounded-xl p-6 mb-8 border border-[#D6B25E]/20 backdrop-blur-sm">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 text-center">
+            <div>
+              <div className="text-[#8B1E1A] text-2xl mb-2">📍</div>
+              <h5 className="font-semibold text-[#8B1E1A] mb-1">Location</h5>
+              <p className="text-[#5A1411] text-sm">Hayathnagar, Hyderabad, Telangana</p>
+            </div>
+            <div>
+              <div className="text-[#8B1E1A] text-2xl mb-2">📞</div>
+              <h5 className="font-semibold text-[#8B1E1A] mb-1">Phone</h5>
+              <p className="text-[#5A1411] text-sm">+91 90005 68416</p>
+            </div>
+            <div>
+              <div className="text-[#8B1E1A] text-2xl mb-2">✉️</div>
+              <h5 className="font-semibold text-[#8B1E1A] mb-1">Email</h5>
+              <p className="text-[#5A1411] text-sm">info@mapleford.edu.in</p>
+            </div>
+          </div>
+        </div>
+
+        {/* Bottom Section */}
+        <div className="pt-8 border-t border-[#D6B25E]/30">
+          <div className="flex flex-col lg:flex-row justify-between items-center gap-4">
+            <div className="text-center lg:text-left">
+              <p className="text-[#5A1411] text-sm mb-2">
+                &copy; 2025 Maple Ford International School. All rights reserved.
+              </p>
+              <p className="text-[#8B1E1A] text-xs">
+                Honoring the legacy of Megacity High School since 1995 • CBSE Affiliated • Maple Bear Collaboration
+              </p>
+            </div>
+            <div className="flex flex-wrap justify-center lg:justify-end gap-6">
+              <Link href="#" className="text-[#5A1411] hover:text-[#D6B25E] transition-colors duration-300 text-sm">Privacy Policy</Link>
+              <Link href="#" className="text-[#5A1411] hover:text-[#D6B25E] transition-colors duration-300 text-sm">Terms of Service</Link>
+              <Link href="#" className="text-[#5A1411] hover:text-[#D6B25E] transition-colors duration-300 text-sm">Accessibility</Link>
+              <Link href="#" className="text-[#5A1411] hover:text-[#D6B25E] transition-colors duration-300 text-sm">Sitemap</Link>
+            </div>
           </div>
         </div>
       </div>

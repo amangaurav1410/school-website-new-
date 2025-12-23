@@ -10,12 +10,22 @@ export default function Home() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [showEnquiryPopup, setShowEnquiryPopup] = useState(false);
   const [activeSubject, setActiveSubject] = useState(0);
+  const [formData, setFormData] = useState({
+    parentName: '',
+    contactNumber: '',
+    email: '',
+    childName: '',
+    childDob: '',
+    gradeApplying: '',
+    message: ''
+  });
+  const [formSubmitted, setFormSubmitted] = useState(false);
 
   const heroImages = [
-    '/images/Screenshot 2025-11-13 at 6.45.06 PM.png',
-    '/images/Screenshot 2025-11-13 at 6.45.28 PM.png',
-    '/images/Screenshot 2025-11-13 at 6.45.38 PM.png',
-    '/images/hero-image.jpg'
+    'https://images.unsplash.com/photo-1544717297-fa95b6ee9643?w=1920&h=1080&fit=crop&q=80',
+    'https://images.unsplash.com/photo-1509062522246-3755977927d7?w=1920&h=1080&fit=crop&q=80',
+    'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1920&h=1080&fit=crop&q=80',
+    'https://images.unsplash.com/photo-1571260899304-425eee4c7efc?w=1920&h=1080&fit=crop&q=80'
   ];
 
   const nextSlide = () => {
@@ -37,8 +47,9 @@ export default function Home() {
     <div className="min-h-screen bg-white">
       <Header />
 
+
       {/* Hero Section */}
-      <section className="relative h-screen overflow-hidden py-0">
+      <section className="relative overflow-hidden h-screen">
         <div className="relative h-full">
           {heroImages.map((image, index) => (
             <div
@@ -49,48 +60,126 @@ export default function Home() {
               style={{ backgroundImage: `url('${image}')` }}
             />
           ))}
-        </div>
+          {/* Semi-transparent black overlay */}
+          <div className="absolute inset-0 bg-black/50 z-10"></div>
 
-        <div className="absolute right-6 top-1/2 transform -translate-y-1/2 z-20 flex flex-col space-y-2">
-          {heroImages.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => setCurrentSlide(index)}
-              className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                index === currentSlide ? 'bg-white' : 'bg-white bg-opacity-50'
-              }`}
-            />
-          ))}
-        </div>
+          {/* Overlay content on slider */}
+          <div className="absolute inset-0 z-20 flex items-center justify-center px-4 sm:px-8 lg:px-16">
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              className="text-center max-w-5xl w-full"
+            >
+              {/* Content container */}
+              <div className="relative px-6 py-8 sm:px-8 sm:py-10 lg:px-12 lg:py-12 max-w-4xl mx-auto">
+                {/* Brand Line */}
+                <motion.h1
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.2 }}
+                  className="font-bold mb-10"
+                  style={{
+                    fontFamily: "'Playfair Display', serif",
+                    background: 'linear-gradient(135deg, #D6B25E 0%, #F5F2EB 50%, #D6B25E 100%)',
+                    WebkitBackgroundClip: 'text',
+                    WebkitTextFillColor: 'transparent',
+                    backgroundClip: 'text',
+                    letterSpacing: '0.03em',
+                    lineHeight: '1.3',
+                    fontSize: '48px'
+                  }}
+                >
+                  Le Savoir | Intégrité | L'Excellence
+                </motion.h1>
 
-        <div className="relative z-10 flex items-center justify-start h-full px-8 lg:px-16">
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            className="max-w-2xl text-white"
-          >
-            <h1 className="text-5xl lg:text-7xl font-bold mb-4">
-              Nurturing Excellence at Maple Ford International School
-            </h1>
-            <p className="text-xl lg:text-2xl mb-2 text-red-400">
-              Where Tradition Meets Innovation
-            </p>
-            <p className="text-lg mb-8">
-              A premier educational institution blending Canadian excellence with Indian values, fostering global citizens through comprehensive learning experiences from preschool to Grade 12.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4">
+                {/* Tagline */}
+                <motion.div
+                  initial={{ opacity: 0, y: 15 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.4 }}
+                  className="mb-12 space-y-2"
+                  style={{
+                    fontFamily: "'Inter', sans-serif",
+                    fontSize: 'clamp(16px, 2.5vw, 20px)',
+                    fontWeight: '300',
+                    color: '#F5F2EB',
+                    letterSpacing: '0.05em',
+                    lineHeight: '1.8'
+                  }}
+                >
+                  <div>Knowledge that Enlightens</div>
+                  <div>Integrity that Endures</div>
+                  <div>Excellence that Inspires</div>
+                </motion.div>
+
+                {/* CTA Buttons - compact modern style */}
+                <motion.div
+                  initial={{ opacity: 0, y: 15 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.6 }}
+                  className="flex flex-col sm:flex-row gap-4 justify-center"
+                >
+                  <Link
+                    href="/about"
+                    className="px-10 py-4 text-base font-semibold transition-all duration-300 font-['Inter']"
+                    style={{
+                      background: 'rgba(255, 255, 255, 0.95)',
+                      color: '#8B1E1A',
+                      borderRadius: '50px',
+                      boxShadow: '0 8px 25px rgba(90, 20, 17, 0.2)'
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.transform = 'translateY(-3px) scale(1.02)';
+                      e.currentTarget.style.boxShadow = '0 12px 35px rgba(214, 178, 94, 0.4)';
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.transform = 'translateY(0) scale(1)';
+                      e.currentTarget.style.boxShadow = '0 8px 25px rgba(90, 20, 17, 0.2)';
+                    }}
+                    aria-label="Explore Maple Ford"
+                  >
+                    Explore Maple Ford
+                  </Link>
+                  <button
+                    onClick={() => setShowEnquiryPopup(true)}
+                    className="px-10 py-4 text-base font-semibold transition-all duration-300 font-['Inter']"
+                    style={{
+                      background: 'linear-gradient(135deg, #9B2621, #6F1613)',
+                      color: '#FFFFFF',
+                      borderRadius: '50px',
+                      boxShadow: '0 8px 25px rgba(90, 20, 17, 0.3)'
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.transform = 'translateY(-3px) scale(1.02)';
+                      e.currentTarget.style.boxShadow = '0 12px 35px rgba(214, 178, 94, 0.5)';
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.transform = 'translateY(0) scale(1)';
+                      e.currentTarget.style.boxShadow = '0 8px 25px rgba(90, 20, 17, 0.3)';
+                    }}
+                    aria-label="Open admission enquiry form"
+                  >
+                    Admission Enquiry
+                  </button>
+                </motion.div>
+              </div>
+            </motion.div>
+          </div>
+
+          {/* Slider dots */}
+          <div className="absolute right-4 sm:right-6 lg:right-8 top-1/2 transform -translate-y-1/2 z-30 flex flex-col space-y-3">
+            {heroImages.map((_, index) => (
               <button
-                onClick={() => setShowEnquiryPopup(true)}
-                className="btn-primary inline-block text-center"
-              >
-                Enquire Now
-              </button>
-              <Link href="/about" className="btn-secondary inline-block text-center">
-                Discover Our Legacy
-              </Link>
-            </div>
-          </motion.div>
+                key={index}
+                onClick={() => setCurrentSlide(index)}
+                className={`w-4 h-4 rounded-full transition-all duration-300 hover:scale-110 ${
+                  index === currentSlide ? 'bg-white shadow-lg' : 'bg-white/60 hover:bg-white/80'
+                }`}
+                aria-label={`Go to slide ${index + 1}`}
+              />
+            ))}
+          </div>
         </div>
       </section>
 
@@ -111,7 +200,7 @@ export default function Home() {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
             {[
               {
                 title: "Academic Excellence",
@@ -143,7 +232,7 @@ export default function Home() {
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: index * 0.1 }}
-                className="bg-white/90 backdrop-blur-md rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 p-8 text-center"
+                className="bg-white/60 backdrop-blur-xl border border-white/30 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 p-8 text-center"
               >
                 <div className={`w-20 h-20 bg-gradient-to-br ${pillar.color} rounded-full flex items-center justify-center mx-auto mb-6 text-3xl`}>
                   {pillar.icon}
@@ -156,7 +245,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Legacy + Introduction Section */}
+      {/* The Maple Ford Edge (Introduction Section) */}
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -165,18 +254,26 @@ export default function Home() {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <h2 className="text-4xl lg:text-5xl font-bold bg-gradient-to-r from-red-500 to-red-700 bg-clip-text text-transparent mb-6 hover:scale-105 transition-transform duration-300 cursor-pointer" style={{ textShadow: '2px 2px 4px rgba(239, 68, 68, 0.5)' }}>
-                From Megacity to Maple Ford: A Legacy of Excellence
+              <h2
+                className="text-4xl lg:text-5xl font-bold mb-6"
+                style={{
+                  fontFamily: "'Playfair Display', serif",
+                  color: '#3B1A17'
+                }}
+              >
+                🍁 The Maple Ford Edge
               </h2>
-              <p className="text-lg text-gray-700 mb-6">
-                Maple Ford International School emerges from the esteemed legacy of Megacity International School, bringing over two decades of educational excellence to Hyderabad. Our evolution represents a commitment to progressive education that honors tradition while embracing innovation.
-              </p>
-              <p className="text-lg text-gray-700 mb-8">
-                Rooted in Canadian educational philosophy and enriched by Indian cultural values, we provide a holistic learning environment where every student discovers their potential and pursues their passions.
-              </p>
-              <Link href="/about" className="btn-primary">
-                Explore Our Journey
-              </Link>
+              <div className="space-y-5 text-lg" style={{ color: '#4F4F4F', lineHeight: '1.8' }}>
+                <p className="text-xl font-medium" style={{ color: '#3B1A17' }}>
+                  Honoring the proud three-decade legacy of Megacity High School, Maple Ford International School marks a purposeful evolution in education.
+                </p>
+                <p>Redefining the future of learning</p>
+                <p>Blending CBSE curriculum with global pathways</p>
+                <p>Academic collaboration with Maple Bear Canadian School</p>
+                <p className="italic font-medium text-xl mt-6" style={{ color: '#5A1411' }}>
+                  This is not merely a transition — it is an evolution with purpose.
+                </p>
+              </div>
             </motion.div>
             <motion.div
               initial={{ opacity: 0, x: 50 }}
@@ -184,19 +281,42 @@ export default function Home() {
               transition={{ duration: 0.8 }}
               className="relative"
             >
-              <div className="aspect-square bg-gradient-to-br from-blue-100 to-red-100 rounded-2xl flex items-center justify-center overflow-hidden">
-                <img
-                  src="https://via.placeholder.com/600x600/2563eb/ffffff?text=Maple+Ford+Legacy"
-                  alt="Maple Ford Legacy"
-                  className="w-full h-full object-cover rounded-2xl"
-                />
+              <div className="grid grid-cols-2 gap-4 aspect-square">
+                <div className="bg-gradient-to-br from-blue-100 to-red-100 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300">
+                  <img
+                    src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=600&h=600&fit=crop"
+                    alt="Modern School Building"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div className="bg-gradient-to-br from-green-100 to-blue-100 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300">
+                  <img
+                    src="https://images.unsplash.com/photo-1509062522246-3755977927d7?w=600&h=600&fit=crop"
+                    alt="Science Laboratory"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div className="bg-gradient-to-br from-purple-100 to-pink-100 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300">
+                  <img
+                    src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=600&h=600&fit=crop"
+                    alt="Library Reading Area"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div className="bg-gradient-to-br from-yellow-100 to-orange-100 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300">
+                  <img
+                    src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=600&h=600&fit=crop"
+                    alt="Sports Facilities"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
               </div>
             </motion.div>
           </div>
         </div>
       </section>
 
-      {/* Continuum of Learning */}
+      {/* The Continuum of Learning (Academics Section) */}
       <section className="py-24 bg-gradient-to-br from-slate-50 via-white to-blue-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -205,36 +325,39 @@ export default function Home() {
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl lg:text-5xl font-bold bg-gradient-to-r from-red-500 to-red-700 bg-clip-text text-transparent mb-6 hover:scale-105 transition-transform duration-300 cursor-pointer" style={{ textShadow: '2px 2px 4px rgba(239, 68, 68, 0.5)' }}>
-              Continuum of Learning
+            <h2
+              className="text-4xl lg:text-5xl font-bold mb-6"
+              style={{
+                fontFamily: "'Playfair Display', serif",
+                color: '#3B1A17'
+              }}
+            >
+              📚 The Continuum of Learning
             </h2>
-            <p className="text-xl text-gray-600 max-w-4xl mx-auto">
-              A seamless educational journey from early childhood to adolescence, nurturing growth at every stage.
+            <p className="text-xl max-w-4xl mx-auto" style={{ color: '#4F4F4F', lineHeight: '1.8' }}>
+              Every stage of learning is a milestone in growth — thoughtfully designed to nurture young minds into competent whizz-kids, enriched with wisdom and wonder.
             </p>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               {
-                stage: "Preschool",
-                grades: "KG1 - KG2",
-                description: "Foundational learning through play-based activities, fostering curiosity and social skills in a nurturing environment.",
-                icon: "🌱",
-                color: "from-green-400 to-green-500"
+                stage: "Pre-School",
+                grades: "(Nursery | Jr. KG | Sr. KG)",
+                description: "The foundation years where curiosity blossoms and imagination leads learning. Through play-based exploration, storytelling, and creative discovery, children develop early confidence, communication skills, and a genuine joy for learning.",
+                image: "https://images.unsplash.com/photo-1587654780291-39c9404d746b?w=800&h=600&fit=crop"
               },
               {
-                stage: "Primary",
-                grades: "Grade 1 - 5",
-                description: "Building strong academic foundations with integrated learning approaches that develop critical thinking and creativity.",
-                icon: "📚",
-                color: "from-blue-400 to-blue-500"
+                stage: "Elementary School",
+                grades: "(Grades 1–5)",
+                description: "The building years of knowledge and expression — where students strengthen academics, values, and creativity. Learning becomes meaningful through interactive classrooms, collaborative projects, and real-world applications.",
+                image: "https://images.unsplash.com/photo-1497633762265-9d179a990aa6?w=800&h=600&fit=crop"
               },
               {
-                stage: "Secondary",
-                grades: "Grade 6 - 12",
-                description: "Advanced curriculum preparing students for higher education and global opportunities through specialized programs.",
-                icon: "🎯",
-                color: "from-purple-400 to-purple-500"
+                stage: "High School",
+                grades: "(Grades 6–10 / 12)",
+                description: "The transformation years that foster independence, discipline, and vision. Guided by CBSE's structured framework and global exposure, learners evolve into confident aspirants — ready to lead, innovate, and explore beyond boundaries.",
+                image: "https://images.unsplash.com/photo-1509062522246-3755977927d7?w=800&h=600&fit=crop"
               }
             ].map((stage, index) => (
               <motion.div
@@ -242,14 +365,20 @@ export default function Home() {
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: index * 0.2 }}
-                className="bg-white rounded-2xl shadow-xl p-8 text-center hover:shadow-2xl transition-shadow duration-500"
+                className="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-shadow duration-500"
               >
-                <div className={`w-16 h-16 bg-gradient-to-br ${stage.color} rounded-full flex items-center justify-center mx-auto mb-6 text-2xl`}>
-                  {stage.icon}
+                <div className="aspect-video overflow-hidden">
+                  <img
+                    src={stage.image}
+                    alt={`${stage.stage} Class`}
+                    className="w-full h-full object-cover"
+                  />
                 </div>
-                <h3 className="text-2xl font-bold text-navy-600 mb-2">{stage.stage}</h3>
-                <p className="text-red-600 font-semibold mb-4">{stage.grades}</p>
-                <p className="text-gray-600">{stage.description}</p>
+                <div className="p-8 text-center">
+                  <h3 className="text-2xl font-bold mb-2" style={{ fontFamily: "'Playfair Display', serif", color: '#3B1A17' }}>{stage.stage}</h3>
+                  <p className="font-semibold mb-4" style={{ color: '#8B1E1A' }}>{stage.grades}</p>
+                  <p style={{ color: '#4F4F4F', lineHeight: '1.7' }}>{stage.description}</p>
+                </div>
               </motion.div>
             ))}
           </div>
@@ -415,33 +544,48 @@ export default function Home() {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <h2 className="text-4xl lg:text-5xl font-bold bg-gradient-to-r from-red-500 to-red-700 bg-clip-text text-transparent mb-6 hover:scale-105 transition-transform duration-300 cursor-pointer" style={{ textShadow: '2px 2px 4px rgba(239, 68, 68, 0.5)' }}>
-                Sports & Athletics
+              <h2
+                className="text-4xl lg:text-5xl font-bold mb-6"
+                style={{
+                  fontFamily: "'Playfair Display', serif",
+                  color: '#3B1A17'
+                }}
+              >
+                ⚽ Sports & Physical Education
               </h2>
-              <p className="text-lg text-gray-700 mb-6">
-                Physical education is integral to our holistic approach, promoting health, teamwork, and leadership through diverse sporting activities.
+              <p className="text-2xl font-semibold mb-4" style={{ color: '#8B1E1A', fontFamily: "'Playfair Display', serif" }}>
+                Chasing Goals. Soaring Spirits High.
               </p>
-              <ul className="space-y-3 text-gray-700 mb-8">
+              <p className="text-lg mb-6" style={{ color: '#4F4F4F', lineHeight: '1.8' }}>
+                Where passion charges the field — and every sport, a lesson in excellence.
+              </p>
+              <p className="mb-6" style={{ color: '#4F4F4F', lineHeight: '1.8' }}>
+                Growth at Maple Ford extends far beyond classrooms. Every match played, every goal scored, and every serve perfected builds resilience, discipline, and determination.
+              </p>
+              <p className="mb-6 font-medium" style={{ color: '#3B1A17' }}>
+                With a vibrant sporting culture, students thrive through:
+              </p>
+              <ul className="space-y-3 mb-8" style={{ color: '#4F4F4F' }}>
                 <li className="flex items-center">
-                  <span className="w-2 h-2 bg-red-600 rounded-full mr-3"></span>
-                  Olympic-standard facilities
+                  <span className="w-2 h-2 rounded-full mr-3" style={{ background: '#D6B25E' }}></span>
+                  Football
                 </li>
                 <li className="flex items-center">
-                  <span className="w-2 h-2 bg-red-600 rounded-full mr-3"></span>
-                  Professional coaching staff
+                  <span className="w-2 h-2 rounded-full mr-3" style={{ background: '#D6B25E' }}></span>
+                  Badminton
                 </li>
                 <li className="flex items-center">
-                  <span className="w-2 h-2 bg-red-600 rounded-full mr-3"></span>
-                  Competitive and recreational sports
+                  <span className="w-2 h-2 rounded-full mr-3" style={{ background: '#D6B25E' }}></span>
+                  Tennis
                 </li>
                 <li className="flex items-center">
-                  <span className="w-2 h-2 bg-red-600 rounded-full mr-3"></span>
-                  Health and wellness programs
+                  <span className="w-2 h-2 rounded-full mr-3" style={{ background: '#D6B25E' }}></span>
+                  Athletics
                 </li>
               </ul>
-              <Link href="/programs" className="btn-primary">
-                Explore Sports Programs
-              </Link>
+              <p style={{ color: '#4F4F4F', lineHeight: '1.8' }}>
+                Supported by state-of-the-art sports infrastructure, Maple Ford nurtures confidence, team spirit, and leadership.
+              </p>
             </motion.div>
             <motion.div
               initial={{ opacity: 0, x: 50 }}
@@ -449,11 +593,11 @@ export default function Home() {
               transition={{ duration: 0.8 }}
               className="relative"
             >
-              <div className="aspect-video bg-gradient-to-br from-blue-100 to-red-100 rounded-2xl flex items-center justify-center overflow-hidden">
+              <div className="aspect-video bg-gradient-to-br from-blue-100 to-red-100 rounded-2xl overflow-hidden shadow-xl">
                 <img
-                  src="https://via.placeholder.com/800x450/16a34a/ffffff?text=Sports+Facilities"
+                  src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=1600&h=900&fit=crop"
                   alt="Sports Facilities"
-                  className="w-full h-full object-cover rounded-2xl"
+                  className="w-full h-full object-cover"
                 />
               </div>
             </motion.div>
@@ -471,11 +615,11 @@ export default function Home() {
               transition={{ duration: 0.8 }}
               className="relative"
             >
-              <div className="aspect-square bg-gradient-to-br from-blue-100 to-red-100 rounded-2xl flex items-center justify-center overflow-hidden">
+              <div className="aspect-square bg-gradient-to-br from-blue-100 to-red-100 rounded-2xl overflow-hidden shadow-xl">
                 <img
-                  src="https://via.placeholder.com/600x600/dc2626/ffffff?text=Chairman"
+                  src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=1200&h=1200&fit=crop"
                   alt="Chairman"
-                  className="w-full h-full object-cover rounded-2xl"
+                  className="w-full h-full object-cover"
                 />
               </div>
             </motion.div>
@@ -484,18 +628,27 @@ export default function Home() {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <h2 className="text-4xl lg:text-5xl font-bold bg-gradient-to-r from-red-500 to-red-700 bg-clip-text text-transparent mb-6 hover:scale-105 transition-transform duration-300 cursor-pointer" style={{ textShadow: '2px 2px 4px rgba(239, 68, 68, 0.5)' }}>
-                Chairman's Message
+              <h2
+                className="text-4xl lg:text-5xl font-bold mb-6"
+                style={{
+                  fontFamily: "'Playfair Display', serif",
+                  color: '#3B1A17'
+                }}
+              >
+                ✉️ Message from the Chairman
               </h2>
-              <blockquote className="text-lg text-gray-700 leading-relaxed mb-6 border-l-4 border-red-600 pl-6 italic">
-                "At Maple Ford International School, we believe that education is the foundation of a brighter future. Our commitment to excellence, innovation, and character development ensures that every student not only achieves academic success but also grows into compassionate, responsible global citizens."
+              <blockquote className="text-lg leading-relaxed mb-6 pl-6 italic" style={{ borderLeft: '4px solid #D6B25E', color: '#4F4F4F' }}>
+                "Education is not merely the transfer of knowledge — it is the cultivation of character, curiosity, and compassion."
               </blockquote>
-              <p className="text-gray-700 mb-4">
-                As Chairman, I am proud to lead an institution that seamlessly blends the best of Canadian educational standards with the rich cultural heritage of India. Our focus on holistic development prepares students for the challenges and opportunities of the 21st century.
+              <p className="mb-4" style={{ color: '#4F4F4F', lineHeight: '1.8' }}>
+                For nearly three decades, our journey has been guided by the belief that schooling must prepare students for life, not just examinations. Maple Ford stands today as an evolution of that belief — blending global perspectives with timeless values.
+              </p>
+              <p className="mb-6 italic font-medium" style={{ color: '#5A1411' }}>
+                Together, let us shape a future where every learning matters — the spark in a question, the pride in a goal, and the courage to try again.
               </p>
               <div className="mt-6">
-                <p className="font-semibold text-navy-600">Dr. Rajesh Kumar</p>
-                <p className="text-gray-600">Chairman, Maple Ford International School</p>
+                <p className="font-bold text-lg" style={{ color: '#3B1A17' }}>— P. Subba Reddy</p>
+                <p style={{ color: '#7E7E7E' }}>Chairman, Maple Ford International School</p>
               </div>
             </motion.div>
           </div>
@@ -511,18 +664,24 @@ export default function Home() {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <h2 className="text-4xl lg:text-5xl font-bold bg-gradient-to-r from-red-500 to-red-700 bg-clip-text text-transparent mb-6 hover:scale-105 transition-transform duration-300 cursor-pointer" style={{ textShadow: '2px 2px 4px rgba(239, 68, 68, 0.5)' }}>
-                Principal's Message
+              <h2
+                className="text-4xl lg:text-5xl font-bold mb-6"
+                style={{
+                  fontFamily: "'Playfair Display', serif",
+                  color: '#3B1A17'
+                }}
+              >
+                ✉️ Message from the Principal
               </h2>
-              <blockquote className="text-lg text-gray-700 leading-relaxed mb-6 border-l-4 border-red-600 pl-6 italic">
-                "Welcome to Maple Ford International School, where we cultivate minds and hearts. Our dedicated faculty and innovative programs create an environment where students thrive academically, socially, and emotionally."
+              <blockquote className="text-lg leading-relaxed mb-6 pl-6 italic" style={{ borderLeft: '4px solid #D6B25E', color: '#4F4F4F' }}>
+                "Education is not a race, but a journey — guided by reflection, balance, and purpose."
               </blockquote>
-              <p className="text-gray-700 mb-4">
-                As Principal, I am committed to providing personalized attention to each student, ensuring they receive the guidance needed to reach their full potential. Our Alberta Curriculum, combined with enriching extracurricular activities, prepares students for success in higher education and beyond.
+              <p className="mb-6" style={{ color: '#4F4F4F', lineHeight: '1.8' }}>
+                Our vision is to create a school where learning feels alive, relationships feel genuine, and every child leaves empowered to grow with confidence and character.
               </p>
               <div className="mt-6">
-                <p className="font-semibold text-navy-600">Ms. Sarah Johnson</p>
-                <p className="text-gray-600">Principal, Maple Ford International School</p>
+                <p className="font-bold text-lg" style={{ color: '#3B1A17' }}>— XYZ</p>
+                <p style={{ color: '#7E7E7E' }}>Principal, Maple Ford International School</p>
               </div>
             </motion.div>
             <motion.div
@@ -531,11 +690,11 @@ export default function Home() {
               transition={{ duration: 0.8 }}
               className="relative"
             >
-              <div className="aspect-square bg-gradient-to-br from-blue-100 to-red-100 rounded-2xl flex items-center justify-center overflow-hidden">
+              <div className="aspect-square bg-gradient-to-br from-blue-100 to-red-100 rounded-2xl overflow-hidden shadow-xl">
                 <img
-                  src="https://via.placeholder.com/600x600/2563eb/ffffff?text=Principal"
+                  src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=1200&h=1200&fit=crop"
                   alt="Principal"
-                  className="w-full h-full object-cover rounded-2xl"
+                  className="w-full h-full object-cover"
                 />
               </div>
             </motion.div>
@@ -601,273 +760,198 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Team/Faculty Preview Section */}
-      <section className="py-24 bg-gradient-to-br from-slate-50 via-white to-blue-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Admission Enquiry Form (Lead Form) */}
+      <section className="py-24 bg-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-center mb-16"
+            className="text-center mb-12"
           >
-            <h2 className="text-4xl lg:text-5xl font-bold bg-gradient-to-r from-red-500 to-red-700 bg-clip-text text-transparent mb-6 hover:scale-105 transition-transform duration-300 cursor-pointer" style={{ textShadow: '2px 2px 4px rgba(239, 68, 68, 0.5)' }}>
-              Meet Our Faculty
+            <h2 className="text-4xl lg:text-5xl font-bold bg-gradient-to-r from-red-500 to-red-700 bg-clip-text text-transparent mb-6">
+              Connect with Maple Ford
             </h2>
-            <p className="text-xl text-gray-600 max-w-4xl mx-auto">
-              Our dedicated educators bring expertise, passion, and innovation to every classroom.
-            </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {[
-              {
-                name: "Dr. Emily Chen",
-                role: "Head of Science",
-                image: "https://via.placeholder.com/300x300/2563eb/ffffff?text=Dr.+Chen"
-              },
-              {
-                name: "Mr. David Kumar",
-                role: "Mathematics Coordinator",
-                image: "https://via.placeholder.com/300x300/dc2626/ffffff?text=Mr.+Kumar"
-              },
-              {
-                name: "Ms. Priya Sharma",
-                role: "English Literature Teacher",
-                image: "https://via.placeholder.com/300x300/16a34a/ffffff?text=Ms.+Sharma"
-              },
-              {
-                name: "Mr. James Wilson",
-                role: "Physical Education Coach",
-                image: "https://via.placeholder.com/300x300/7c3aed/ffffff?text=Mr.+Wilson"
-              }
-            ].map((member, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
-              >
-                <div className="aspect-square overflow-hidden">
-                  <img
-                    src={member.image}
-                    alt={member.name}
-                    className="w-full h-full object-cover"
+          {!formSubmitted ? (
+            <motion.form
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="bg-gray-50 p-8 rounded-2xl shadow-lg"
+              onSubmit={async (e) => {
+                e.preventDefault();
+                try {
+                  const res = await fetch('/api/inquiries', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(formData)
+                  });
+                  if (res.ok) {
+                    setFormSubmitted(true);
+                    setFormData({
+                      parentName: '',
+                      contactNumber: '',
+                      email: '',
+                      childName: '',
+                      childDob: '',
+                      gradeApplying: '',
+                      message: ''
+                    });
+                  } else {
+                    alert('Failed to submit. Please try again.');
+                  }
+                } catch (error) {
+                  console.error('Submission error:', error);
+                  alert('An error occurred. Please try again.');
+                }
+              }}
+            >
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                <div>
+                  <label className="block text-gray-700 mb-2 font-medium">Parent / Guardian Name</label>
+                  <input
+                    type="text"
+                    required
+                    value={formData.parentName}
+                    onChange={(e) => setFormData({ ...formData, parentName: e.target.value })}
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-600"
+                    placeholder="Enter parent/guardian name"
                   />
                 </div>
-                <div className="p-6 text-center">
-                  <h3 className="text-lg font-bold text-navy-600 mb-1">{member.name}</h3>
-                  <p className="text-gray-600 text-sm">{member.role}</p>
+                <div>
+                  <label className="block text-gray-700 mb-2 font-medium">Contact Number</label>
+                  <input
+                    type="tel"
+                    required
+                    value={formData.contactNumber}
+                    onChange={(e) => setFormData({ ...formData, contactNumber: e.target.value })}
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-600"
+                    placeholder="Enter contact number"
+                  />
                 </div>
-              </motion.div>
-            ))}
-          </div>
+              </div>
 
-          <div className="text-center mt-12 mb-16">
-            <Link href="/faculty" className="btn-primary">
-              Meet the Full Team
-            </Link>
-          </div>
-        </div>
-      </section>
+              <div className="mb-6">
+                <label className="block text-gray-700 mb-2 font-medium">Email Address</label>
+                <input
+                  type="email"
+                  required
+                  value={formData.email}
+                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-600"
+                  placeholder="Enter email address"
+                />
+              </div>
 
-      {/* Redesigned CTA Section */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-red-600 via-red-700 to-red-800">
-        {/* Animated background elements */}
-        <div className="absolute inset-0">
-          <div className="absolute top-20 left-20 w-64 h-64 bg-red-500/20 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-20 right-20 w-96 h-96 bg-red-400/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-red-300/15 rounded-full blur-2xl animate-ping"></div>
-        </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                <div>
+                  <label className="block text-gray-700 mb-2 font-medium">Child's Name</label>
+                  <input
+                    type="text"
+                    required
+                    value={formData.childName}
+                    onChange={(e) => setFormData({ ...formData, childName: e.target.value })}
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-600"
+                    placeholder="Enter child's name"
+                  />
+                </div>
+                <div>
+                  <label className="block text-gray-700 mb-2 font-medium">Child's Date of Birth</label>
+                  <input
+                    type="date"
+                    required
+                    value={formData.childDob}
+                    onChange={(e) => setFormData({ ...formData, childDob: e.target.value })}
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-600"
+                  />
+                </div>
+              </div>
 
-        {/* Floating particles */}
-        <div className="absolute inset-0 overflow-hidden">
-          {[...Array(20)].map((_, i) => (
+              <div className="mb-6">
+                <label className="block text-gray-700 mb-2 font-medium">Grade Applying For</label>
+                <select
+                  required
+                  value={formData.gradeApplying}
+                  onChange={(e) => setFormData({ ...formData, gradeApplying: e.target.value })}
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-600"
+                >
+                  <option value="">Select grade</option>
+                  <option value="nursery">Nursery</option>
+                  <option value="jr-kg">Jr. KG</option>
+                  <option value="sr-kg">Sr. KG</option>
+                  <option value="grade-1">Grade 1</option>
+                  <option value="grade-2">Grade 2</option>
+                  <option value="grade-3">Grade 3</option>
+                  <option value="grade-4">Grade 4</option>
+                  <option value="grade-5">Grade 5</option>
+                  <option value="grade-6">Grade 6</option>
+                  <option value="grade-7">Grade 7</option>
+                  <option value="grade-8">Grade 8</option>
+                  <option value="grade-9">Grade 9</option>
+                  <option value="grade-10">Grade 10</option>
+                </select>
+              </div>
+
+              <div className="mb-8">
+                <label className="block text-gray-700 mb-2 font-medium">Message (Optional)</label>
+                <textarea
+                  rows={4}
+                  value={formData.message}
+                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-600"
+                  placeholder="Tell us about your interest in Maple Ford..."
+                ></textarea>
+              </div>
+
+              <button
+                type="submit"
+                className="w-full bg-red-600 text-white py-4 px-8 rounded-xl font-semibold text-lg hover:bg-red-700 transition-all duration-300 hover:scale-105"
+              >
+                Submit
+              </button>
+            </motion.form>
+          ) : (
             <motion.div
-              key={i}
-              className="absolute w-2 h-2 bg-white/20 rounded-full"
-              animate={{
-                y: [0, -100, 0],
-                x: [0, Math.random() * 100 - 50, 0],
-                opacity: [0, 1, 0]
-              }}
-              transition={{
-                duration: Math.random() * 3 + 2,
-                repeat: Infinity,
-                delay: Math.random() * 2
-              }}
-              style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`
-              }}
-            />
-          ))}
-        </div>
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6 }}
+              className="text-center bg-green-50 p-12 rounded-2xl shadow-lg"
+            >
+              <div className="text-6xl mb-6">✅</div>
+              <h3 className="text-2xl font-bold text-green-800 mb-4">Thank You!</h3>
+              <p className="text-lg text-green-700">
+                We appreciate your interest. Our team shall reach out to you promptly.
+              </p>
+            </motion.div>
+          )}
 
-        <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          {/* Badge */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6 }}
-            className="inline-flex items-center bg-white/10 backdrop-blur-lg border border-white/20 rounded-full px-8 py-4 mb-8"
-          >
-            <div className="w-3 h-3 bg-green-400 rounded-full mr-3 animate-pulse"></div>
-            <span className="text-white text-lg font-medium">🎓 Limited Seats Available - Enroll Now!</span>
-          </motion.div>
-
-          {/* Main Heading */}
-          <motion.h1
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-6xl lg:text-8xl font-bold text-white mb-8 leading-tight"
-          >
-            Start Your Child's
-            <span className="block bg-gradient-to-r from-yellow-300 via-orange-300 to-red-300 bg-clip-text text-transparent animate-pulse">
-              Educational Journey Today
-            </span>
-          </motion.h1>
-
-          {/* Subtext */}
-          <motion.p
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-xl lg:text-2xl text-red-100 mb-12 max-w-4xl mx-auto leading-relaxed"
+            className="text-center mt-12"
           >
-            Join the Maple Ford family and give your child the gift of world-class education. Our comprehensive program nurtures young minds for a brighter future.
-          </motion.p>
-
-          {/* CTA Buttons */}
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            className="flex flex-col sm:flex-row gap-6 justify-center mb-16"
-          >
-            <motion.button
-              onClick={() => setShowEnquiryPopup(true)}
-              whileHover={{ scale: 1.05, boxShadow: "0 25px 50px rgba(59, 130, 246, 0.5)" }}
-              whileTap={{ scale: 0.95 }}
-              className="group relative bg-gradient-to-r from-blue-500 via-purple-500 to-blue-600 text-white px-12 py-6 rounded-2xl font-bold text-xl shadow-2xl overflow-hidden"
-            >
-              <div className="absolute inset-0 bg-gradient-to-r from-purple-600 via-blue-500 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              <span className="relative flex items-center justify-center">
-                <span className="text-3xl mr-4">🚀</span>
-                Enquire Now
-              </span>
-            </motion.button>
-
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <Link
-                href="/admissions"
-                className="group relative inline-flex items-center border-2 border-white/40 text-white px-12 py-6 rounded-2xl font-bold text-xl hover:bg-white hover:text-red-600 transition-all duration-500 shadow-xl backdrop-blur-sm"
-              >
-                <span className="text-3xl mr-4">📝</span>
-                Apply Online
-              </Link>
-            </motion.div>
-          </motion.div>
-
-          {/* Stats Grid */}
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.8 }}
-            className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16"
-          >
-            {[
-              { icon: "🏆", number: "20+", label: "Years of Excellence" },
-              { icon: "👨‍👩‍👧‍👦", number: "1000+", label: "Happy Students" },
-              { icon: "🎓", number: "100%", label: "Placement Success" }
-            ].map((stat, index) => (
-              <motion.div
-                key={index}
-                whileHover={{ scale: 1.05, y: -5 }}
-                className="bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl p-8 text-center"
-              >
-                <div className="text-5xl mb-4">{stat.icon}</div>
-                <div className="text-4xl font-bold text-white mb-2">{stat.number}</div>
-                <div className="text-red-100 text-lg">{stat.label}</div>
-              </motion.div>
-            ))}
-          </motion.div>
-
-          {/* Contact Section */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1 }}
-            className="mb-12"
-          >
-            <h3 className="text-2xl lg:text-3xl font-semibold text-white mb-8">Have Questions? Let's Connect!</h3>
-            <div className="flex flex-col sm:flex-row gap-6 justify-center">
-              <motion.a
-                href="https://wa.me/919876543210"
-                target="_blank"
-                rel="noopener noreferrer"
-                whileHover={{ scale: 1.05, y: -3 }}
-                whileTap={{ scale: 0.95 }}
-                className="group flex items-center bg-green-500 hover:bg-green-400 text-white px-10 py-5 rounded-xl font-semibold text-lg transition-all duration-300 shadow-lg hover:shadow-green-500/30"
-              >
-                <svg className="w-6 h-6 mr-4" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"/>
-                </svg>
-                WhatsApp Chat
-              </motion.a>
-
-              <motion.a
-                href="tel:+919876543210"
-                whileHover={{ scale: 1.05, y: -3 }}
-                whileTap={{ scale: 0.95 }}
-                className="group flex items-center bg-blue-500 hover:bg-blue-400 text-white px-10 py-5 rounded-xl font-semibold text-lg transition-all duration-300 shadow-lg hover:shadow-blue-500/30"
-              >
-                <svg className="w-6 h-6 mr-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                </svg>
-                Call Now
-              </motion.a>
+            <div className="flex items-center justify-center gap-4 mb-4">
+              <span className="text-2xl">📞</span>
+              <span className="text-lg font-medium">WhatsApp: +91 90005 68416</span>
             </div>
+            <a
+              href="https://wa.me/919000568416"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center bg-green-500 hover:bg-green-600 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 hover:scale-105"
+            >
+              <svg className="w-6 h-6 mr-3" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"/>
+              </svg>
+              Chat with us
+            </a>
           </motion.div>
-
-          {/* Trust indicators */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1.2 }}
-            className="flex flex-wrap items-center justify-center gap-8 text-white/80"
-          >
-            {[
-              { icon: "✓", color: "bg-green-500", text: "Expert Faculty" },
-              { icon: "✓", color: "bg-blue-500", text: "Modern Facilities" },
-              { icon: "✓", color: "bg-purple-500", text: "Holistic Development" },
-              { icon: "✓", color: "bg-yellow-500", text: "Canadian Curriculum" }
-            ].map((item, index) => (
-              <motion.div
-                key={index}
-                whileHover={{ scale: 1.05 }}
-                className="flex items-center bg-white/5 backdrop-blur-sm border border-white/10 rounded-full px-6 py-3"
-              >
-                <div className={`w-6 h-6 ${item.color} rounded-full flex items-center justify-center mr-3`}>
-                  <span className="text-white text-sm font-bold">{item.icon}</span>
-                </div>
-                <span className="font-medium">{item.text}</span>
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
-
-        {/* Bottom wave with enhanced design */}
-        <div className="absolute bottom-0 left-0 right-0">
-          <svg viewBox="0 0 1440 120" className="w-full h-auto">
-            <path fill="#ffffff" d="M0,32L48,37.3C96,43,192,53,288,58.7C384,64,480,64,576,58.7C672,53,768,43,864,48C960,53,1056,75,1152,80C1248,85,1344,75,1392,69.3L1440,64L1440,120L1392,120C1344,120,1248,120,1152,120C1056,120,960,120,864,120C768,120,672,120,576,120C480,120,384,120,288,120C192,120,96,120,48,120L0,120Z"></path>
-          </svg>
         </div>
       </section>
+
 
       {/* Enquiry Form Popup */}
       {showEnquiryPopup && (

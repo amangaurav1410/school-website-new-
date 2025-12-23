@@ -1,11 +1,13 @@
 const mongoose = require('mongoose');
 
 const InquirySchema = new mongoose.Schema({
-  studentName: String,
-  parentContact: String,
-  grade: String,
-  previousSchool: String,
-  specialRequirements: String,
+  parentName: String,
+  contactNumber: String,
+  email: String,
+  childName: String,
+  childDob: Date,
+  gradeApplying: String,
+  message: String,
   status: { type: String, default: 'pending' },
   createdAt: { type: Date, default: Date.now }
 });
