@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
@@ -12,6 +12,7 @@ export default function Home() {
   const [activeSubject, setActiveSubject] = useState(0);
   const [activePillar, setActivePillar] = useState(0);
   const [isPillarPaused, setIsPillarPaused] = useState(false);
+  const [showFrenchMotto, setShowFrenchMotto] = useState(true);
   const [formData, setFormData] = useState({
     parentName: '',
     contactNumber: '',
@@ -55,6 +56,19 @@ export default function Home() {
     }
   }, [isPillarPaused]);
 
+  // Animate motto text sequence on each slide
+  useEffect(() => {
+    // Reset to French on slide change
+    setShowFrenchMotto(true);
+
+    // After 2.5 seconds, switch to English
+    const timer = setTimeout(() => {
+      setShowFrenchMotto(false);
+    }, 2500);
+
+    return () => clearTimeout(timer);
+  }, [currentSlide]);
+
   return (
     <div className="min-h-screen bg-white">
       <Header />
@@ -85,45 +99,57 @@ export default function Home() {
             >
               {/* Content container */}
               <div className="relative px-6 py-8 sm:px-8 sm:py-10 lg:px-12 lg:py-12 max-w-4xl mx-auto">
-                {/* Brand Line */}
-                <motion.h1
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.2 }}
-                  className="font-bold mb-10"
-                  style={{
-                    fontFamily: "'Playfair Display', serif",
-                    background: 'linear-gradient(135deg, #D6B25E 0%, #F5F2EB 50%, #D6B25E 100%)',
-                    WebkitBackgroundClip: 'text',
-                    WebkitTextFillColor: 'transparent',
-                    backgroundClip: 'text',
-                    letterSpacing: '0.03em',
-                    lineHeight: '1.3',
-                    fontSize: '48px'
-                  }}
-                >
-                  Le Savoir | Intégrité | L'Excellence
-                </motion.h1>
-
-                {/* Tagline */}
-                <motion.div
-                  initial={{ opacity: 0, y: 15 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.4 }}
-                  className="mb-12 space-y-2"
-                  style={{
-                    fontFamily: "'Inter', sans-serif",
-                    fontSize: 'clamp(16px, 2.5vw, 20px)',
-                    fontWeight: '300',
-                    color: '#F5F2EB',
-                    letterSpacing: '0.05em',
-                    lineHeight: '1.8'
-                  }}
-                >
-                  <div>Knowledge that Enlightens</div>
-                  <div>Integrity that Endures</div>
-                  <div>Excellence that Inspires</div>
-                </motion.div>
+                {/* Animated Motto Sequence */}
+                <div className="mb-10" style={{ minHeight: '200px' }}>
+                  <AnimatePresence mode="wait">
+                    {showFrenchMotto ? (
+                      <motion.h1
+                        key="french"
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -20 }}
+                        transition={{ duration: 0.8 }}
+                        className="font-bold"
+                        style={{
+                          fontFamily: '"Playfair Display", serif',
+                          background: 'linear-gradient(135deg, rgb(214, 178, 94) 0%, rgb(245, 242, 235) 50%, rgb(214, 178, 94) 100%)',
+                          WebkitBackgroundClip: 'text',
+                          WebkitTextFillColor: 'transparent',
+                          backgroundClip: 'text',
+                          letterSpacing: '0.03em',
+                          lineHeight: '1.3',
+                          fontSize: '48px'
+                        }}
+                      >
+                        Le Savoir | Intégrité | L'Excellence
+                      </motion.h1>
+                    ) : (
+                      <motion.div
+                        key="english"
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -20 }}
+                        transition={{ duration: 0.8 }}
+                        className="space-y-3"
+                        style={{
+                          fontFamily: '"Playfair Display", serif',
+                          background: 'linear-gradient(135deg, rgb(214, 178, 94) 0%, rgb(245, 242, 235) 50%, rgb(214, 178, 94) 100%)',
+                          WebkitBackgroundClip: 'text',
+                          WebkitTextFillColor: 'transparent',
+                          backgroundClip: 'text',
+                          letterSpacing: '0.03em',
+                          lineHeight: '1.3',
+                          fontSize: '48px',
+                          fontWeight: 'bold'
+                        }}
+                      >
+                        <div>Knowledge that Enlightens</div>
+                        <div>Integrity that Endures</div>
+                        <div>Excellence that Inspires</div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
 
                 {/* CTA Buttons - compact modern style */}
                 <motion.div
