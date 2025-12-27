@@ -69,6 +69,15 @@ export default function Home() {
     return () => clearTimeout(timer);
   }, [currentSlide]);
 
+  // Auto-rotate STEAM subjects every 5 seconds
+  useEffect(() => {
+    const steamInterval = setInterval(() => {
+      setActiveSubject((prev) => (prev + 1) % 5); // 5 STEAM subjects (0-4)
+    }, 5000);
+
+    return () => clearInterval(steamInterval);
+  }, []);
+
   return (
     <div className="min-h-screen bg-white">
       <Header />
