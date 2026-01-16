@@ -24,13 +24,11 @@ export default function Header() {
   const menuItems: MenuItem[] = [
     { title: 'Home', href: '/' },
     {
-      title: 'About',
+      title: 'About Us',
       dropdown: [
-        { title: 'Who We Are', href: '/about' },
-        { title: 'Our School of Thought', href: '/about#school-of-thought' },
+        { title: 'Who we are', href: '/about' },
         { title: 'Our Team', href: '/about/team' },
-        { title: 'Message from the Chairman', href: '/about#chairman-message' },
-        { title: 'Message from the Principal', href: '/about#principal-message' }
+        { title: 'Brochure', href: '/brochure' }
       ]
     },
     {
@@ -93,15 +91,25 @@ export default function Header() {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full">
           <div className="flex justify-between items-center h-full">
-            {/* Left - Logo - Increased size */}
-            <Link href="/" className="flex items-center h-full py-1">
-              <img
-                src="/maple-ford-logo.png"
-                alt="Mapleford International School Logo"
-                className="h-full w-auto object-contain transition-transform duration-300 hover:scale-105"
-                style={{ maxHeight: '120%' }} // Allow it to fill well
-              />
-            </Link>
+            {/* Left - Logos */}
+            <div className="flex items-center h-full gap-3 sm:gap-6">
+              <Link href="/" className="flex items-center h-full py-3">
+                <img
+                  src="/left-logo.png"
+                  alt="Logo"
+                  className="h-full w-auto object-contain transition-transform duration-300 hover:scale-105"
+                />
+              </Link>
+
+              <Link href="/" className="flex items-center h-full py-1">
+                <img
+                  src="/maple-ford-logo.png"
+                  alt="Mapleford International School Logo"
+                  className="h-full w-auto object-contain transition-transform duration-300 hover:scale-105"
+                  style={{ maxHeight: '120%' }}
+                />
+              </Link>
+            </div>
 
             {/* Center - Desktop Navigation */}
             <nav className="hidden lg:flex items-center gap-1" ref={dropdownRef}>
