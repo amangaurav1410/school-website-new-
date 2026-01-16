@@ -62,105 +62,106 @@ export default function Blogs() {
       <Header />
       <div className="pt-20">
         <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-blue-50">
-      {/* Hero Section */}
-      <section className="relative py-32 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-red-600/10 via-red-700/5 to-red-800/10"></div>
-        <div className="absolute top-20 left-20 w-64 h-64 bg-red-200/20 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 right-20 w-96 h-96 bg-red-300/20 rounded-full blur-3xl"></div>
+          {/* Hero Section */}
+          <section className="relative py-32 overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-br from-red-600/10 via-red-700/5 to-red-800/10"></div>
+            <div className="absolute top-20 left-20 w-64 h-64 bg-red-200/20 rounded-full blur-3xl"></div>
+            <div className="absolute bottom-20 right-20 w-96 h-96 bg-red-300/20 rounded-full blur-3xl"></div>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <motion.h1
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-5xl lg:text-7xl font-bold bg-gradient-to-r from-red-600 to-red-700 bg-clip-text text-transparent mb-6"
-          >
-            Our Blog
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-xl lg:text-2xl text-gray-700 max-w-4xl mx-auto leading-relaxed"
-          >
-            Insights, stories, and perspectives from Maple Ford International School community.
-          </motion.p>
-        </div>
-      </section>
+            <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+              <motion.h1
+                initial={{ opacity: 0, y: 50 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
+                className="text-6xl lg:text-8xl font-black mb-6"
+                style={{ fontFamily: '"Raleway", sans-serif', color: '#1A1A1A' }}
+              >
+                Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#D6B25E] to-[#FFA500]">Blog</span>
+              </motion.h1>
+              <motion.p
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                className="text-xl lg:text-2xl text-gray-700 max-w-4xl mx-auto leading-relaxed"
+              >
+                Insights, stories, and perspectives from <span className="text-[#8B1E1A] font-bold">Mapleford International School</span> community.
+              </motion.p>
+            </div>
+          </section>
 
-      {/* Blog Posts Grid */}
-      <section className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {blogPosts.map((post, index) => (
-              <motion.article
-                key={index}
+          {/* Blog Posts Grid */}
+          <section className="py-24 bg-white">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {blogPosts.map((post, index) => (
+                  <motion.article
+                    key={index}
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: index * 0.1 }}
+                    className="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300 group"
+                  >
+                    <div className="aspect-video overflow-hidden">
+                      <img
+                        src={post.image}
+                        alt={post.title}
+                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                      />
+                    </div>
+                    <div className="p-6">
+                      <div className="flex items-center justify-between mb-4">
+                        <span className="px-3 py-1 bg-red-100 text-red-600 rounded-full text-sm font-medium">
+                          {post.category}
+                        </span>
+                        <span className="text-gray-500 text-sm">{post.readTime}</span>
+                      </div>
+                      <h2 className="text-xl font-bold text-gray-800 mb-3 group-hover:text-red-600 transition-colors duration-300">
+                        {post.title}
+                      </h2>
+                      <p className="text-gray-600 mb-4 leading-relaxed">
+                        {post.excerpt}
+                      </p>
+                      <div className="flex items-center justify-between">
+                        <span className="text-sm text-gray-500">{post.date}</span>
+                        <button className="text-red-600 hover:text-red-700 font-medium text-sm group-hover:translate-x-1 transition-transform duration-300">
+                          Read More →
+                        </button>
+                      </div>
+                    </div>
+                  </motion.article>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          {/* Newsletter Signup */}
+          <section className="py-24 bg-gradient-to-br from-slate-50 via-white to-blue-50">
+            <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+              <motion.div
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: index * 0.1 }}
-                className="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300 group"
+                transition={{ duration: 0.8 }}
+                className="bg-white/80 backdrop-blur-sm border border-white/50 rounded-3xl p-12 shadow-xl"
               >
-                <div className="aspect-video overflow-hidden">
-                  <img
-                    src={post.image}
-                    alt={post.title}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                <h2 className="text-4xl lg:text-5xl font-black mb-6" style={{ fontFamily: '"Raleway", sans-serif', color: '#1A1A1A' }}>
+                  Stay <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#D6B25E] to-[#FFA500]">Updated</span>
+                </h2>
+                <p className="text-xl text-gray-600 mb-8">
+                  Subscribe to our newsletter for the latest news, events, and educational insights.
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+                  <input
+                    type="email"
+                    placeholder="Enter your email"
+                    className="flex-1 px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-600"
                   />
+                  <button className="px-8 py-3 bg-red-600 text-white rounded-lg font-semibold hover:bg-red-700 transition-colors duration-300">
+                    Subscribe
+                  </button>
                 </div>
-                <div className="p-6">
-                  <div className="flex items-center justify-between mb-4">
-                    <span className="px-3 py-1 bg-red-100 text-red-600 rounded-full text-sm font-medium">
-                      {post.category}
-                    </span>
-                    <span className="text-gray-500 text-sm">{post.readTime}</span>
-                  </div>
-                  <h2 className="text-xl font-bold text-gray-800 mb-3 group-hover:text-red-600 transition-colors duration-300">
-                    {post.title}
-                  </h2>
-                  <p className="text-gray-600 mb-4 leading-relaxed">
-                    {post.excerpt}
-                  </p>
-                  <div className="flex items-center justify-between">
-                    <span className="text-sm text-gray-500">{post.date}</span>
-                    <button className="text-red-600 hover:text-red-700 font-medium text-sm group-hover:translate-x-1 transition-transform duration-300">
-                      Read More →
-                    </button>
-                  </div>
-                </div>
-              </motion.article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Newsletter Signup */}
-      <section className="py-24 bg-gradient-to-br from-slate-50 via-white to-blue-50">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="bg-white/80 backdrop-blur-sm border border-white/50 rounded-3xl p-12 shadow-xl"
-          >
-            <h2 className="text-3xl lg:text-4xl font-bold bg-gradient-to-r from-red-600 to-red-700 bg-clip-text text-transparent mb-6">
-              Stay Updated
-            </h2>
-            <p className="text-xl text-gray-600 mb-8">
-              Subscribe to our newsletter for the latest news, events, and educational insights.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
-              <input
-                type="email"
-                placeholder="Enter your email"
-                className="flex-1 px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-600"
-              />
-              <button className="px-8 py-3 bg-red-600 text-white rounded-lg font-semibold hover:bg-red-700 transition-colors duration-300">
-                Subscribe
-              </button>
+              </motion.div>
             </div>
-          </motion.div>
-        </div>
-      </section>
+          </section>
         </div>
       </div>
       <Footer />

@@ -34,9 +34,9 @@ export default function Header() {
     {
       title: 'Curriculum',
       dropdown: [
-        { title: 'Pre-School', href: '/programs#preschool' },
-        { title: 'Elementary School', href: '/programs#elementary' },
-        { title: 'High School', href: '/programs#highschool' }
+        { title: 'Pre-School', href: '/curriculum/pre-school' },
+        { title: 'Elementary School', href: '/curriculum/elementary' },
+        { title: 'High School', href: '/curriculum/high-school' }
       ]
     },
     { title: 'Campus', href: '/campus' },
@@ -122,7 +122,7 @@ export default function Header() {
                         onMouseEnter={() => setActiveDropdown(item.title)}
                         className={`px-3 py-2 text-[14px] font-semibold transition-all duration-300 flex items-center gap-1 rounded-lg ${activeDropdown === item.title
                           ? 'text-[#8B1E1A] bg-[#FDF6E3]'
-                          : 'text-[#3B1A17] hover:text-[#8B1E1A] hover:bg-[#FDF6E3]'
+                          : 'text-[#1A1A1A] hover:text-[#8B1E1A] hover:bg-[#FDF6E3]'
                           }`}
                         style={{ fontFamily: '"Lato", sans-serif' }}
                       >
@@ -162,7 +162,7 @@ export default function Header() {
                   ) : (
                     <Link
                       href={item.href || '/'}
-                      className="px-3 py-2 text-[14px] font-semibold text-[#3B1A17] hover:text-[#8B1E1A] hover:bg-[#FDF6E3] transition-all duration-300 rounded-lg"
+                      className="px-3 py-2 text-[14px] font-semibold text-[#1A1A1A] hover:text-[#8B1E1A] hover:bg-[#FDF6E3] transition-all duration-300 rounded-lg"
                       style={{ fontFamily: '"Lato", sans-serif' }}
                     >
                       {item.title}
@@ -190,7 +190,7 @@ export default function Header() {
               {/* Mobile Menu Button */}
               <button
                 onClick={() => setIsMobileMenuOpen(true)}
-                className="lg:hidden flex items-center gap-2 text-[#3B1A17] hover:text-[#8B1E1A] transition-all duration-300"
+                className="lg:hidden flex items-center gap-2 text-[#1A1A1A] hover:text-[#8B1E1A] transition-all duration-300"
               >
                 <svg
                   width="28"
@@ -241,7 +241,7 @@ export default function Header() {
                 </Link>
                 <button
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="flex items-center gap-2 text-[#3B1A17] hover:text-[#8B1E1A] transition-all duration-300"
+                  className="flex items-center gap-2 text-[#1A1A1A] hover:text-[#8B1E1A] transition-all duration-300"
                 >
                   <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <line x1="18" y1="6" x2="6" y2="18" />
@@ -261,7 +261,7 @@ export default function Header() {
                     <div>
                       <button
                         onClick={() => toggleMobileSubmenu(item.title)}
-                        className="w-full flex items-center justify-between py-4 text-lg font-semibold text-[#3B1A17] hover:text-[#8B1E1A] transition-colors"
+                        className="w-full flex items-center justify-between py-4 text-lg font-semibold text-[#1A1A1A] hover:text-[#8B1E1A] transition-colors"
                         style={{ fontFamily: "'Playfair Display', serif" }}
                       >
                         {item.title}
@@ -294,7 +294,7 @@ export default function Header() {
                   ) : (
                     <Link
                       href={item.href || '/'}
-                      className="block py-4 text-lg font-semibold text-[#3B1A17] hover:text-[#8B1E1A] transition-colors"
+                      className="block py-4 text-lg font-semibold text-[#1A1A1A] hover:text-[#8B1E1A] transition-colors"
                       style={{ fontFamily: "'Playfair Display', serif" }}
                       onClick={() => setIsMobileMenuOpen(false)}
                     >

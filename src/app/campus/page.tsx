@@ -108,251 +108,211 @@ export default function Campus() {
   return (
     <div className="min-h-screen bg-white">
       <Header />
-      <div className="pt-24">
+      <div className="pt-24 min-h-screen bg-white">
         {/* Hero Section */}
-        <section className="relative py-24 overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-br from-red-600/10 via-red-700/5 to-red-800/10"></div>
-          <div className="absolute top-20 left-20 w-64 h-64 bg-red-200/20 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-20 right-20 w-96 h-96 bg-red-300/20 rounded-full blur-3xl"></div>
+        <section className="relative py-32 lg:py-56 overflow-hidden">
+          <div className="absolute inset-0 bg-[#1A1A1A]">
+            <img
+              src="https://images.unsplash.com/photo-1541339907198-e08756ebafe1?w=1600&h=900&fit=crop"
+              className="w-full h-full object-cover opacity-30 grayscale group-hover:grayscale-0 transition-all duration-700"
+              alt="Campus Main View"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#1A1A1A] via-[#1A1A1A]/40 to-transparent"></div>
+          </div>
 
           <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <motion.h1
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              className="text-4xl lg:text-6xl font-bold mb-6"
-              style={{
-                fontFamily: "'Playfair Display', serif",
-                color: '#3B1A17'
-              }}
-            >
-              🏫 Campus
-            </motion.h1>
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="flex flex-wrap justify-center gap-4 text-xl lg:text-2xl font-semibold mb-8"
-              style={{ color: '#8B1E1A' }}
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 1 }}
             >
-              <span>Spaces that Inspire</span>
-              <span className="text-[#D6B25E]">|</span>
-              <span>Designed for Discovery</span>
-              <span className="text-[#D6B25E]">|</span>
-              <span>Purposefully Equipped</span>
+              <span className="text-sm font-bold tracking-[0.5em] text-[#D6B25E] uppercase mb-6 block">Experience the Space</span>
+              <h1
+                className="text-6xl lg:text-9xl font-bold text-white mb-8 leading-[0.9]"
+                style={{ fontFamily: '"Raleway", sans-serif' }}
+              >
+                Our <span className="text-[#D6B25E]">Campus.</span>
+              </h1>
+              <p className="text-xl lg:text-3xl text-white/80 max-w-3xl mx-auto font-light leading-relaxed italic">
+                "A 4-acre sanctuary of learning where every corner inspires growth."
+              </p>
             </motion.div>
-            <motion.p
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              className="text-lg max-w-3xl mx-auto"
-              style={{ color: '#4F4F4F', lineHeight: '1.8' }}
-            >
-              Set across a sprawling 4-acre campus, Mapleford International School offers students
-              the freedom to explore, learn, and thrive in an open, thoughtfully designed environment.
-            </motion.p>
           </div>
-        </section>
 
-        {/* Campus Overview Image */}
-        <section className="py-12 bg-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              className="aspect-[21/9] rounded-3xl overflow-hidden shadow-2xl"
-            >
-              <img
-                src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=1920&h=800&fit=crop"
-                alt="Mapleford Campus Overview"
-                className="w-full h-full object-cover"
-              />
-            </motion.div>
+          {/* Scroll Indicator */}
+          <div className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4">
+            <div className="w-[1px] h-20 bg-gradient-to-t from-[#D6B25E] to-transparent"></div>
+            <span className="text-[#D6B25E] text-xs uppercase tracking-[0.3em] font-bold">Scroll</span>
           </div>
         </section>
 
         {/* Facilities Grid */}
-        <section className="py-24 bg-gradient-to-br from-slate-50 via-white to-blue-50">
+        <section className="py-32 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              className="text-center mb-16"
-            >
-              <h2
-                className="text-3xl lg:text-4xl font-bold mb-6"
-                style={{
-                  fontFamily: "'Playfair Display', serif",
-                  color: '#3B1A17'
-                }}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-32 items-center mb-32">
+              <motion.div
+                initial={{ opacity: 0, x: -50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                className="space-y-10"
               >
-                Our Facilities
-              </h2>
-              <p className="text-lg max-w-3xl mx-auto" style={{ color: '#4F4F4F' }}>
-                Every corner of our campus is designed to inspire learning, creativity, and growth.
-              </p>
-            </motion.div>
+                <h2 className="text-4xl lg:text-6xl font-black leading-tight" style={{ fontFamily: '"Raleway", sans-serif', color: '#1A1A1A' }}>
+                  Modern Infrastructure <br />
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#D6B25E] to-[#FFA500]">Rooted in Comfort</span>
+                </h2>
+                <div className="w-20 h-2 bg-[#D6B25E] rounded-full"></div>
+                <p className="text-xl text-[#4F4F4F] leading-relaxed">
+                  Our campus in Hayathnagar is designed to be a home away from home — safe, stimulating, and technologically advanced.
+                </p>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {facilities.map((facility, index) => (
+                <div className="space-y-8">
+                  {[
+                    { title: "Smart Classrooms", desc: "Digital connectivity and ergonomic design for modern learners." },
+                    { title: "Safe & Secure", desc: "Comprehensive CCTV coverage and trained security personnel." },
+                    { title: "Digital Hub", desc: "Equipped with high-speed internet and the latest computing technology." }
+                  ].map((feature, i) => (
+                    <div key={i} className="flex gap-6 items-start group">
+                      <div className="w-14 h-14 rounded-2xl bg-[#FDF6E3] border border-[#D6B25E]/20 flex items-center justify-center shrink-0 group-hover:bg-[#8B1E1A] transition-colors">
+                        <div className="w-2 h-2 rounded-full bg-[#8B1E1A] group-hover:bg-[#FDF6E3]"></div>
+                      </div>
+                      <div>
+                        <h4 className="text-xl font-bold mb-2 transition-colors group-hover:text-[#8B1E1A]">{feature.title}</h4>
+                        <p className="text-gray-600 leading-relaxed">{feature.desc}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </motion.div>
+
+              <div className="relative">
                 <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 50 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className={`bg-gradient-to-br ${facility.color} p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2`}
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  className="relative z-10 rounded-[4rem] overflow-hidden shadow-2xl aspect-[9/11]"
                 >
-                  <div className="text-5xl mb-4">{facility.icon}</div>
-                  <h3
-                    className="text-xl font-bold mb-2"
-                    style={{
-                      fontFamily: "'Playfair Display', serif",
-                      color: '#3B1A17'
-                    }}
-                  >
-                    {facility.title}
-                  </h3>
-                  <p className="font-semibold mb-4" style={{ color: '#8B1E1A' }}>
-                    {facility.subtitle}
-                  </p>
-                  <p className="text-sm leading-relaxed" style={{ color: '#4F4F4F' }}>
-                    {facility.description}
-                  </p>
+                  <img
+                    src="https://images.unsplash.com/photo-1541339907198-e08756ebafe1?w=1000&h=1200&fit=crop"
+                    alt="Infrastructure"
+                    className="w-full h-full object-cover"
+                  />
+                </motion.div>
+                <div className="absolute -top-12 -right-12 w-96 h-96 bg-[#D6B25E]/10 rounded-full blur-[100px] -z-10"></div>
+                <div className="absolute -bottom-12 -left-12 w-48 h-48 bg-[#8B1E1A]/10 rounded-3xl rotate-12 -z-10"></div>
+              </div>
+            </div>
+
+            {/* Feature Cards */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+              {[
+                {
+                  title: "The Library",
+                  icon: "📚",
+                  desc: "A vast collection of wisdom ranging from classics to modern science fiction.",
+                  img: "https://images.unsplash.com/photo-1544640808-32ca72ac7f37?w=600&h=400&fit=crop"
+                },
+                {
+                  title: "Design Lab",
+                  icon: "🎨",
+                  desc: "Unleashing creative potential with dedicated studios for fine arts and digital design.",
+                  img: "https://images.unsplash.com/photo-1547891269-05520fe3f447?w=600&h=400&fit=crop"
+                },
+                {
+                  title: "Hygiene & Care",
+                  icon: "🧴",
+                  desc: "Pristine facilities and a dedicated sick-bay for immediate medical attention.",
+                  img: "https://images.unsplash.com/photo-1586771107445-d3ca888129ff?w=600&h=400&fit=crop"
+                }
+              ].map((card, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.2 }}
+                  className="group"
+                >
+                  <div className="relative h-[450px] rounded-[3rem] overflow-hidden shadow-xl mb-8">
+                    <img src={card.img} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt={card.title} />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#1A1A1A] via-transparent to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
+                    <div className="absolute bottom-10 left-10 text-white">
+                      <span className="text-4xl mb-4 block">{card.icon}</span>
+                      <h4 className="text-3xl font-bold mb-2" style={{ fontFamily: '"Raleway", sans-serif' }}>{card.title}</h4>
+                    </div>
+                  </div>
+                  <p className="text-lg text-gray-600 px-6 italic transition-colors group-hover:text-[#1A1A1A]">{card.desc}</p>
                 </motion.div>
               ))}
             </div>
           </div>
         </section>
 
-        {/* Sports Arena Highlight */}
-        <section className="py-24 bg-white">
+        {/* Sports Arena - The Highlight */}
+        <section className="py-32 bg-[#FDF6E3]/30 relative overflow-hidden">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              <motion.div
-                initial={{ opacity: 0, x: -50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8 }}
-              >
-                <h2
-                  className="text-3xl lg:text-4xl font-bold mb-4"
-                  style={{
-                    fontFamily: "'Playfair Display', serif",
-                    color: '#3B1A17'
-                  }}
-                >
-                  ⚽ Sports Arena
-                </h2>
-                <p
-                  className="text-2xl font-semibold mb-4"
-                  style={{
-                    fontFamily: "'Playfair Display', serif",
-                    color: '#8B1E1A'
-                  }}
-                >
-                  Chasing Goals! Soaring Spirits High!
-                </p>
-                <p className="text-lg italic mb-6" style={{ color: '#5A1411' }}>
-                  Where passion charges the field — and every sport, a lesson in excellence
-                </p>
-                <p className="mb-6" style={{ color: '#4F4F4F', lineHeight: '1.8' }}>
-                  At Mapleford International School, growth isn't limited to books and classrooms —
-                  it thrives on the field, on the court, and in every challenge that builds spirit
-                  and strength.
-                </p>
-                <p className="mb-6" style={{ color: '#4F4F4F', lineHeight: '1.8' }}>
-                  Every match played, every goal scored, and every serve perfected shapes not just
-                  an athlete, but a resilient, disciplined, and determined individual.
-                </p>
-                <div className="grid grid-cols-2 gap-4 mb-6">
-                  {['Football', 'Badminton', 'Tennis', 'Athletics'].map((sport, index) => (
-                    <div key={index} className="flex items-center">
-                      <span
-                        className="w-3 h-3 rounded-full mr-3"
-                        style={{ background: '#D6B25E' }}
-                      ></span>
-                      <span className="font-medium" style={{ color: '#3B1A17' }}>
-                        {sport}
-                      </span>
+            <div className="flex flex-col lg:flex-row items-end justify-between mb-20 gap-8">
+              <div className="text-left">
+                <span className="text-sm font-bold tracking-[0.5em] text-[#8B1E1A] uppercase mb-4 block">Champions in Action</span>
+                <h2 className="text-5xl lg:text-7xl font-black leading-tight" style={{ fontFamily: '"Raleway", sans-serif', color: '#1A1A1A' }}>The Sports <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#D6B25E] to-[#FFA500]">Arena</span></h2>
+              </div>
+              <p className="text-xl text-[#4F4F4F] max-w-xl lg:text-right leading-relaxed italic">
+                Physical health is the foundation of mental agility. Our arena is where students learn resilience, teamwork, and the spirit of fair play.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+              <div className="lg:col-span-2 relative h-[600px] rounded-[4rem] overflow-hidden shadow-2xl group">
+                <img
+                  src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=1200&h=800&fit=crop"
+                  className="w-full h-full object-cover grayscale-[30%] group-hover:grayscale-0 transition-all duration-700 hover:scale-105"
+                  alt="Sports Field"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#1A1A1A] via-transparent to-transparent"></div>
+                <div className="absolute bottom-12 left-12">
+                  <h4 className="text-4xl font-bold text-white mb-4">Multi-Purpose Field</h4>
+                  <div className="flex gap-4">
+                    <span className="px-6 py-2 rounded-full bg-white/10 backdrop-blur-md text-white border border-white/20 text-sm font-bold">Football</span>
+                    <span className="px-6 py-2 rounded-full bg-white/10 backdrop-blur-md text-white border border-white/20 text-sm font-bold">Athletics</span>
+                  </div>
+                </div>
+              </div>
+              <div className="space-y-8">
+                {[
+                  { title: "Basketball Court", desc: "Flood-lit pro courts.", img: "https://images.unsplash.com/photo-1546519638-68e109498ffc?w=600&h=400&fit=crop" },
+                  { title: "Indoor Games", desc: "Table tennis, chess, and more.", img: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=600&h=400&fit=crop" }
+                ].map((item, i) => (
+                  <div key={i} className="relative h-[284px] rounded-[3rem] overflow-hidden shadow-xl group">
+                    <img src={item.img} className="w-full h-full object-cover grayscale-[30%] group-hover:grayscale-0 transition-all duration-700" alt={item.title} />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#1A1A1A] via-transparent to-transparent"></div>
+                    <div className="absolute bottom-8 left-8">
+                      <h4 className="text-xl font-bold text-white mb-1">{item.title}</h4>
+                      <p className="text-white/70 text-sm">{item.desc}</p>
                     </div>
-                  ))}
-                </div>
-                <p style={{ color: '#4F4F4F', lineHeight: '1.8' }}>
-                  Our state-of-the-art infrastructure — from modern sports arenas to safe,
-                  well-equipped training zones — forms the backbone of an environment that fosters
-                  confidence, team spirit, and leadership.
-                </p>
-              </motion.div>
-              <motion.div
-                initial={{ opacity: 0, x: 50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8 }}
-                className="grid grid-cols-2 gap-4"
-              >
-                <div className="aspect-square rounded-2xl overflow-hidden shadow-lg">
-                  <img
-                    src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=600&h=600&fit=crop"
-                    alt="Football Field"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div className="aspect-square rounded-2xl overflow-hidden shadow-lg">
-                  <img
-                    src="https://images.unsplash.com/photo-1626224583764-f87db24ac4ea?w=600&h=600&fit=crop"
-                    alt="Badminton Court"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div className="aspect-square rounded-2xl overflow-hidden shadow-lg">
-                  <img
-                    src="https://images.unsplash.com/photo-1554068865-24cecd4e34b8?w=600&h=600&fit=crop"
-                    alt="Tennis Court"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div className="aspect-square rounded-2xl overflow-hidden shadow-lg">
-                  <img
-                    src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=600&h=600&fit=crop"
-                    alt="Athletics Track"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-              </motion.div>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </section>
 
-        {/* CTA Section */}
-        <section className="py-24 bg-gradient-to-br from-red-600 via-red-700 to-red-800">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl p-12 shadow-2xl"
-            >
-              <h2 className="text-3xl lg:text-4xl font-bold text-white mb-6">
-                Experience Our Campus
-              </h2>
-              <p className="text-xl text-red-100 mb-8">
-                Schedule a visit and explore our world-class facilities.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link
-                  href="/admissions"
-                  className="bg-white text-red-600 px-8 py-4 rounded-xl font-bold text-lg hover:bg-red-50 transition-colors duration-300 shadow-lg"
-                >
-                  Schedule a Visit
-                </Link>
-                <Link
-                  href="/contact"
-                  className="bg-red-500 hover:bg-red-600 text-white px-8 py-4 rounded-xl font-bold text-lg transition-colors duration-300 shadow-lg"
-                >
-                  Contact Us
-                </Link>
+        {/* Final CTA */}
+        <section className="py-24 bg-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="bg-[#1A1A1A] rounded-[4rem] p-16 lg:p-24 relative overflow-hidden text-center group">
+              <div className="absolute inset-0 bg-gradient-to-r from-[#D6B25E]/20 to-transparent"></div>
+              <div className="relative z-10">
+                <h2 className="text-5xl lg:text-7xl font-black text-white mb-10" style={{ fontFamily: '"Raleway", sans-serif' }}>Come, Witness it <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#D6B25E] to-[#FFA500]">Yourself</span></h2>
+                <p className="text-xl text-white/70 mb-14 max-w-2xl mx-auto italic">Book a personalized campus tour and experience the world of Mapleford.</p>
+                <div className="flex flex-col sm:flex-row gap-8 justify-center">
+                  <Link href="/contact" className="px-12 py-6 bg-[#D6B25E] text-[#1A1A1A] rounded-[2rem] font-bold text-xl hover:scale-105 transition-transform shadow-2xl">
+                    Request a Tour
+                  </Link>
+                  <Link href="/" className="px-12 py-6 bg-transparent border-2 border-white/20 text-white rounded-[2rem] font-bold text-xl hover:bg-white/10 transition-colors">
+                    Back to Home
+                  </Link>
+                </div>
               </div>
-            </motion.div>
+            </div>
           </div>
         </section>
       </div>

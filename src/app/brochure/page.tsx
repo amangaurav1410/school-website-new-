@@ -6,7 +6,7 @@ import Footer from '../../components/Footer';
 
 export default function Brochure() {
     return (
-        <div className="min-h-screen bg-white text-[#3B1A17]">
+        <div className="min-h-screen bg-white text-[#1A1A1A]">
             <Header />
             <div className="pt-24 min-h-screen flex flex-col items-center justify-center relative overflow-hidden">
                 {/* Background Elements */}
@@ -24,10 +24,10 @@ export default function Brochure() {
                     <motion.h1
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
-                        className="text-5xl lg:text-7xl font-bold mb-8"
-                        style={{ fontFamily: '"Raleway", sans-serif' }}
+                        className="text-6xl lg:text-8xl font-black mb-8"
+                        style={{ fontFamily: '"Raleway", sans-serif', color: '#1A1A1A' }}
                     >
-                        School <span className="text-[#8B1E1A]">Brochure</span>
+                        School <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#D6B25E] to-[#FFA500]">Brochure</span>
                     </motion.h1>
 
                     <motion.p
@@ -47,7 +47,9 @@ export default function Brochure() {
                         className="p-10 rounded-[3rem] bg-white shadow-2xl border border-[#D6B25E]/20 relative group"
                     >
                         <div className="text-6xl mb-8">📄</div>
-                        <h2 className="text-2xl font-bold mb-6">Prospectus 2024-25</h2>
+                        <h2 className="text-2xl lg:text-3xl font-black mb-6" style={{ fontFamily: '"Raleway", sans-serif', color: '#1A1A1A' }}>
+                            Prospectus <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#D6B25E] to-[#FFA500]">2024-25</span>
+                        </h2>
 
                         <button
                             className="px-12 py-5 rounded-2xl font-bold text-lg transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-2xl"

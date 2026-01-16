@@ -9,381 +9,183 @@ export default function Programs() {
   return (
     <div className="min-h-screen bg-white">
       <Header />
-      <div className="pt-24">
-        {/* Hero Section */}
-        <section className="relative py-24 overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-br from-red-600/10 via-red-700/5 to-red-800/10"></div>
-          <div className="absolute top-20 left-20 w-64 h-64 bg-red-200/20 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-20 right-20 w-96 h-96 bg-red-300/20 rounded-full blur-3xl"></div>
-
-          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <motion.h1
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              className="text-4xl lg:text-6xl font-bold mb-6"
-              style={{
-                fontFamily: "'Playfair Display', serif",
-                color: '#3B1A17'
-              }}
+      <div className="pt-24 min-h-screen bg-white text-[#1A1A1A]">
+        {/* Curated Hero */}
+        <section className="relative py-32 lg:py-52 overflow-hidden bg-[#FDF6E3]/30">
+          <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/pinstripe-light.png')] opacity-30"></div>
+          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-[#1A1A1A]">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 1 }}
             >
-              📚 Curriculum
-            </motion.h1>
-            <motion.h2
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-2xl lg:text-3xl font-semibold mb-6"
-              style={{ color: '#8B1E1A' }}
-            >
-              A Seamless Blend of Two Powerful Systems
-            </motion.h2>
-            <motion.p
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              className="text-xl font-medium"
-              style={{ color: '#5A1411' }}
-            >
-              Canadian Pedagogy + CBSE Curriculum
-            </motion.p>
+              <span className="text-sm font-bold tracking-[0.5em] text-[#8B1E1A] uppercase mb-6 block">Our Academic Ethos</span>
+              <h1
+                className="text-6xl lg:text-9xl font-bold mb-8 leading-[0.9]"
+                style={{ fontFamily: '"Raleway", sans-serif' }}
+              >
+                Wisdom & <br />
+                <span className="text-[#8B1E1A]">Wonder.</span>
+              </h1>
+              <p className="text-xl lg:text-3xl text-gray-600 max-w-3xl mx-auto font-light leading-relaxed italic">
+                "Where the rigor of the CBSE curriculum meets the creative inquiry of Canadian pedagogy."
+              </p>
+            </motion.div>
           </div>
         </section>
 
-        {/* Curriculum Overview */}
-        <section className="py-24 bg-white">
+        {/* The Mapleford Edge */}
+        <section className="py-32 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
               <motion.div
                 initial={{ opacity: 0, x: -50 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8 }}
+                viewport={{ once: true }}
               >
-                <div className="aspect-video rounded-2xl overflow-hidden shadow-xl">
-                  <img
-                    src="https://images.unsplash.com/photo-1509062522246-3755977927d7?w=1200&h=800&fit=crop"
-                    alt="Students Learning"
-                    className="w-full h-full object-cover"
-                  />
+                <h2 className="text-5xl lg:text-6xl font-black mb-8 leading-tight" style={{ fontFamily: '"Raleway", sans-serif' }}>The Global <br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-[#D6B25E] to-[#FFA500]">Advantage</span></h2>
+                <div className="w-24 h-2 bg-[#8B1E1A] rounded-full mb-12"></div>
+                <p className="text-xl text-gray-600 leading-relaxed mb-8">
+                  Mapleford International School is a proud partner of <strong>Maple Bear Global Schools</strong>, spanning 35+ countries. We bring the world-renowned Canadian education system—consistently ranked among the top 5 globally—to India.
+                </p>
+                <div className="flex gap-8">
+                  <div className="text-center p-6 rounded-3xl bg-[#FDF6E3] border border-[#D6B25E]/20">
+                    <div className="text-3xl font-bold text-[#8B1E1A]">35+</div>
+                    <div className="text-xs uppercase tracking-widest font-bold text-gray-500 mt-2">Countries</div>
+                  </div>
+                  <div className="text-center p-6 rounded-3xl bg-[#FDF6E3] border border-[#D6B25E]/20">
+                    <div className="text-3xl font-bold text-[#8B1E1A]">500+</div>
+                    <div className="text-xs uppercase tracking-widest font-bold text-gray-500 mt-2">Schools</div>
+                  </div>
                 </div>
               </motion.div>
+
               <motion.div
-                initial={{ opacity: 0, x: 50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8 }}
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                className="relative"
               >
-                <p className="text-lg leading-relaxed mb-6" style={{ color: '#4F4F4F' }}>
-                  At Mapleford International School, learning is shaped by a powerful collaboration
-                  with <span className="font-bold" style={{ color: '#8B1E1A' }}>Maple Bear Global Schools, Canada</span>
-                  —a world leader in bilingual, inquiry-based education operating across{' '}
-                  <span className="font-bold">35+ countries</span> and{' '}
-                  <span className="font-bold">450+ schools</span>.
-                </p>
-                <p className="text-lg leading-relaxed mb-6" style={{ color: '#4F4F4F' }}>
-                  Through this framework, our students benefit from the proven strengths of the
-                  Canadian education system, consistently ranked among the world's best, while
-                  staying firmly aligned to India's robust CBSE curriculum.
-                </p>
-                <div className="flex flex-wrap gap-4">
-                  <div className="flex items-center px-4 py-2 bg-red-50 rounded-full">
-                    <span className="mr-2">🍁</span>
-                    <span className="font-medium" style={{ color: '#8B1E1A' }}>Maple Bear Partner</span>
-                  </div>
-                  <div className="flex items-center px-4 py-2 bg-blue-50 rounded-full">
-                    <span className="mr-2">📜</span>
-                    <span className="font-medium" style={{ color: '#1E40AF' }}>CBSE Affiliated</span>
-                  </div>
+                <div className="aspect-[4/5] rounded-[4rem] overflow-hidden shadow-2xl relative z-10">
+                  <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=800&h=1000&fit=crop" className="w-full h-full object-cover" alt="Student success" />
                 </div>
+                <div className="absolute -bottom-10 -left-10 w-64 h-64 bg-[#D6B25E] rounded-full -z-0 blur-3xl opacity-20"></div>
               </motion.div>
             </div>
           </div>
         </section>
 
-        {/* The Continuum of Learning */}
-        <section className="py-24 bg-gradient-to-br from-slate-50 via-white to-blue-50">
+        {/* Learning Levels */}
+        <section className="py-32 bg-[#1A1A1A] text-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              className="text-center mb-16"
-            >
-              <h2
-                className="text-3xl lg:text-4xl font-bold mb-6"
-                style={{
-                  fontFamily: "'Playfair Display', serif",
-                  color: '#3B1A17'
-                }}
-              >
-                🎓 The Continuum of Learning
-              </h2>
-              <p className="text-xl max-w-4xl mx-auto leading-relaxed" style={{ color: '#4F4F4F' }}>
-                Every stage of learning is a milestone in growth — thoughtfully designed to nurture
-                young minds into competent whizz-kids with wisdom and wonder.
-              </p>
-            </motion.div>
+            <div className="text-center mb-24">
+              <h2 className="text-5xl lg:text-7xl font-black mb-8" style={{ fontFamily: '"Raleway", sans-serif' }}>Our Learning <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#D6B25E] to-[#FFA500]">Paths</span></h2>
+              <p className="text-xl text-white/60 max-w-2xl mx-auto italic">A seamless continuum from early discovery to future leadership.</p>
+            </div>
 
-            {/* Pre-School */}
-            <motion.div
-              id="preschool"
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              className="bg-white rounded-3xl shadow-xl overflow-hidden mb-12"
-            >
-              <div className="grid grid-cols-1 lg:grid-cols-2">
-                <div className="aspect-video lg:aspect-auto">
-                  <img
-                    src="https://images.unsplash.com/photo-1587654780291-39c9404d746b?w=800&h=600&fit=crop"
-                    alt="Pre-School"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div className="p-8 lg:p-12 flex flex-col justify-center">
-                  <div className="flex items-center mb-4">
-                    <span className="text-4xl mr-4">🌱</span>
-                    <div>
-                      <h3
-                        className="text-2xl lg:text-3xl font-bold"
-                        style={{
-                          fontFamily: "'Playfair Display', serif",
-                          color: '#3B1A17'
-                        }}
-                      >
-                        Pre-School
-                      </h3>
-                      <p className="font-semibold" style={{ color: '#8B1E1A' }}>
-                        Nursery | Jr. KG | Sr. KG
-                      </p>
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+              {[
+                {
+                  title: "Pre-School",
+                  href: "/curriculum/pre-school",
+                  icon: "🌱",
+                  desc: "Nursery to Sr. KG. Focusing on play, wonder, and sensory discovery.",
+                  color: "bg-[#8B1E1A]"
+                },
+                {
+                  title: "Elementary",
+                  href: "/curriculum/elementary",
+                  icon: "📖",
+                  desc: "Grades 1 to 5. Building blocks of core knowledge and character.",
+                  color: "bg-[#D6B25E]"
+                },
+                {
+                  title: "High School",
+                  href: "/curriculum/high-school",
+                  icon: "🎓",
+                  desc: "Grades 6 to 10. Rigorous academic excellence and future vision.",
+                  color: "bg-white text-[#1A1A1A]"
+                }
+              ].map((path, i) => (
+                <Link key={i} href={path.href} className="group">
+                  <motion.div
+                    whileHover={{ y: -20 }}
+                    className="bg-white/5 border border-white/10 p-12 rounded-[4rem] h-full hover:bg-white/10 transition-all flex flex-col"
+                  >
+                    <div className={`w-20 h-20 ${path.color} rounded-3xl flex items-center justify-center text-4xl mb-10 shadow-xl group-hover:scale-110 transition-transform`}>{path.icon}</div>
+                    <h3 className="text-3xl font-bold mb-6" style={{ fontFamily: '"Raleway", sans-serif' }}>{path.title}</h3>
+                    <p className="text-lg text-white/60 mb-12 flex-grow leading-relaxed">{path.desc}</p>
+                    <div className="text-[#D6B25E] font-bold inline-flex items-center gap-2 group-hover:gap-4 transition-all">
+                      Explore Curriculum <span>→</span>
                     </div>
-                  </div>
-                  <p className="text-lg leading-relaxed" style={{ color: '#4F4F4F' }}>
-                    The foundation years where curiosity blossoms and imagination leads learning.
-                    Through play-based exploration, storytelling, and creative discovery, pre-schoolers
-                    develop early confidence, communication skills, and joy in learning.
-                  </p>
-                  <ul className="mt-6 space-y-2">
-                    {['Play-based learning', 'Creative exploration', 'Early literacy & numeracy', 'Social skill development'].map((item, i) => (
-                      <li key={i} className="flex items-center">
-                        <span className="w-2 h-2 rounded-full mr-3" style={{ background: '#D6B25E' }}></span>
-                        <span style={{ color: '#4F4F4F' }}>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            </motion.div>
-
-            {/* Elementary School */}
-            <motion.div
-              id="elementary"
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              className="bg-white rounded-3xl shadow-xl overflow-hidden mb-12"
-            >
-              <div className="grid grid-cols-1 lg:grid-cols-2">
-                <div className="p-8 lg:p-12 flex flex-col justify-center order-2 lg:order-1">
-                  <div className="flex items-center mb-4">
-                    <span className="text-4xl mr-4">📖</span>
-                    <div>
-                      <h3
-                        className="text-2xl lg:text-3xl font-bold"
-                        style={{
-                          fontFamily: "'Playfair Display', serif",
-                          color: '#3B1A17'
-                        }}
-                      >
-                        Elementary School
-                      </h3>
-                      <p className="font-semibold" style={{ color: '#8B1E1A' }}>
-                        Grades 1–5
-                      </p>
-                    </div>
-                  </div>
-                  <p className="text-lg leading-relaxed" style={{ color: '#4F4F4F' }}>
-                    The building years of knowledge and expression — where students strengthen
-                    academics, values, and creativity. Learning becomes meaningful through interactive
-                    classrooms and real-world applications.
-                  </p>
-                  <ul className="mt-6 space-y-2">
-                    {['Interactive learning', 'Value-based education', 'Creative expression', 'Real-world applications'].map((item, i) => (
-                      <li key={i} className="flex items-center">
-                        <span className="w-2 h-2 rounded-full mr-3" style={{ background: '#D6B25E' }}></span>
-                        <span style={{ color: '#4F4F4F' }}>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                <div className="aspect-video lg:aspect-auto order-1 lg:order-2">
-                  <img
-                    src="https://images.unsplash.com/photo-1497633762265-9d179a990aa6?w=800&h=600&fit=crop"
-                    alt="Elementary School"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-              </div>
-            </motion.div>
-
-            {/* High School */}
-            <motion.div
-              id="highschool"
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              className="bg-white rounded-3xl shadow-xl overflow-hidden"
-            >
-              <div className="grid grid-cols-1 lg:grid-cols-2">
-                <div className="aspect-video lg:aspect-auto">
-                  <img
-                    src="https://images.unsplash.com/photo-1509062522246-3755977927d7?w=800&h=600&fit=crop"
-                    alt="High School"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div className="p-8 lg:p-12 flex flex-col justify-center">
-                  <div className="flex items-center mb-4">
-                    <span className="text-4xl mr-4">🎓</span>
-                    <div>
-                      <h3
-                        className="text-2xl lg:text-3xl font-bold"
-                        style={{
-                          fontFamily: "'Playfair Display', serif",
-                          color: '#3B1A17'
-                        }}
-                      >
-                        High School
-                      </h3>
-                      <p className="font-semibold" style={{ color: '#8B1E1A' }}>
-                        Grades 6–10
-                      </p>
-                    </div>
-                  </div>
-                  <p className="text-lg leading-relaxed" style={{ color: '#4F4F4F' }}>
-                    The transformation years that foster independence, discipline, and vision. With
-                    CBSE's structured framework and global exposure, learners evolve into confident
-                    aspirants — ready to lead, innovate, and explore the world beyond boundaries.
-                  </p>
-                  <ul className="mt-6 space-y-2">
-                    {['CBSE framework', 'Global exposure', 'Leadership development', 'Career readiness'].map((item, i) => (
-                      <li key={i} className="flex items-center">
-                        <span className="w-2 h-2 rounded-full mr-3" style={{ background: '#D6B25E' }}></span>
-                        <span style={{ color: '#4F4F4F' }}>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            </motion.div>
+                  </motion.div>
+                </Link>
+              ))}
+            </div>
           </div>
         </section>
 
-        {/* STEAM Section */}
-        <section className="py-24 bg-white">
+        {/* STEAM - Redesigned Component */}
+        <section className="py-32 bg-white overflow-hidden">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              className="text-center mb-16"
-            >
-              <h2
-                className="text-4xl lg:text-5xl font-bold mb-4"
-                style={{
-                  fontFamily: "'Playfair Display', serif",
-                  color: '#3B1A17'
-                }}
-              >
-                💡 STEAM
-              </h2>
-              <h3 className="text-2xl font-semibold mb-6" style={{ color: '#8B1E1A' }}>
-                Where Logic Meets Imagination
-              </h3>
-              <p className="text-lg max-w-4xl mx-auto" style={{ color: '#4F4F4F', lineHeight: '1.8' }}>
-                At Mapleford International School, STEAM education blends Science, Technology,
-                Engineering, Arts, and Mathematics to cultivate learners who can think critically,
-                design creatively, and innovate purposefully.
-              </p>
-            </motion.div>
+            <div className="text-center mb-24">
+              <h2 className="text-5xl font-black mb-6" style={{ fontFamily: '"Raleway", sans-serif' }}>The STEAM <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#D6B25E] to-[#FFA500]">Spirit</span></h2>
+              <p className="text-xl text-gray-500 max-w-2xl mx-auto italic">Where logic meets intuition, and science meets soul.</p>
+            </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-5 gap-6 mb-12">
+            <div className="flex flex-wrap justify-center gap-8 mb-20">
               {[
-                { letter: 'S', subject: 'Science', tagline: 'with Imagination', icon: '🔬', color: 'from-blue-500 to-blue-600' },
-                { letter: 'T', subject: 'Technology', tagline: 'with Innovation', icon: '💻', color: 'from-green-500 to-green-600' },
-                { letter: 'E', subject: 'Engineering', tagline: 'with Design', icon: '⚙️', color: 'from-orange-500 to-orange-600' },
-                { letter: 'A', subject: 'Arts', tagline: 'with Purpose', icon: '🎨', color: 'from-purple-500 to-purple-600' },
-                { letter: 'M', subject: 'Mathematics', tagline: 'with Vision', icon: '📐', color: 'from-red-500 to-red-600' }
-              ].map((item, index) => (
+                { l: "S", c: "#2563eb", name: "Science" },
+                { l: "T", c: "#16a34a", name: "Tech" },
+                { l: "E", c: "#ea580c", name: "Engg" },
+                { l: "A", c: "#9333ea", name: "Arts" },
+                { l: "M", c: "#dc2626", name: "Math" },
+              ].map((item, i) => (
                 <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className="text-center"
+                  key={i}
+                  whileHover={{ scale: 1.1, rotate: 5 }}
+                  className="w-32 h-32 rounded-full border-2 border-gray-100 flex flex-col items-center justify-center bg-white shadow-xl"
                 >
-                  <div
-                    className={`w-20 h-20 mx-auto rounded-2xl bg-gradient-to-br ${item.color} flex items-center justify-center text-white text-3xl font-bold shadow-lg mb-4`}
-                  >
-                    {item.letter}
-                  </div>
-                  <h4 className="font-bold text-lg" style={{ color: '#3B1A17' }}>
-                    {item.subject}
-                  </h4>
-                  <p className="text-sm" style={{ color: '#8B1E1A' }}>
-                    {item.tagline}
-                  </p>
+                  <span className="text-4xl font-black mb-1" style={{ color: item.c }}>{item.l}</span>
+                  <span className="text-[10px] uppercase font-black tracking-widest text-gray-400">{item.name}</span>
                 </motion.div>
               ))}
             </div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              className="bg-gradient-to-br from-slate-50 to-blue-50 p-8 rounded-2xl"
-            >
-              <p className="text-lg leading-relaxed mb-4" style={{ color: '#4F4F4F' }}>
-                Our classrooms are spaces of exploration — where scientific curiosity merges with
-                artistic creativity, and technology becomes a canvas for expression.
-              </p>
-              <p className="text-lg leading-relaxed" style={{ color: '#4F4F4F' }}>
-                Students engage in hands-on design projects, robotics, visual arts, coding, and
-                creative problem-solving — learning to see challenges from multiple perspectives.
-              </p>
-            </motion.div>
+            <div className="bg-[#FDF6E3]/30 p-12 lg:p-20 rounded-[4rem] border border-[#D6B25E]/10">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <p className="text-2xl font-light text-[#1A1A1A] leading-relaxed italic">
+                  "Not just subjects, but lenses. Our STEAM approach encourages students to look at a problem from five different perspectives, fostering a mind that is both analytical and empathetic."
+                </p>
+                <div className="space-y-6">
+                  <div className="flex gap-6 items-start">
+                    <div className="w-2 h-2 rounded-full bg-[#8B1E1A] mt-3"></div>
+                    <p className="text-lg text-gray-600">Hands-on robotics and coding labs</p>
+                  </div>
+                  <div className="flex gap-6 items-start">
+                    <div className="w-2 h-2 rounded-full bg-[#8B1E1A] mt-3"></div>
+                    <p className="text-lg text-gray-600">Visual arts integrated into scientific inquiry</p>
+                  </div>
+                  <div className="flex gap-6 items-start">
+                    <div className="w-2 h-2 rounded-full bg-[#8B1E1A] mt-3"></div>
+                    <p className="text-lg text-gray-600">Design thinking workshops for real-world solutions</p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
 
-        {/* CTA Section */}
-        <section className="py-24 bg-gradient-to-br from-red-600 via-red-700 to-red-800">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl p-12 shadow-2xl"
-            >
-              <h2 className="text-3xl lg:text-4xl font-bold text-white mb-6">
-                Ready to Begin the Journey?
-              </h2>
-              <p className="text-xl text-red-100 mb-8">
-                Give your child the gift of world-class education.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link
-                  href="/admissions"
-                  className="bg-white text-red-600 px-8 py-4 rounded-xl font-bold text-lg hover:bg-red-50 transition-colors duration-300 shadow-lg"
-                >
-                  Admission Enquiry
-                </Link>
-                <Link
-                  href="/contact"
-                  className="bg-red-500 hover:bg-red-600 text-white px-8 py-4 rounded-xl font-bold text-lg transition-colors duration-300 shadow-lg"
-                >
-                  Contact Us
-                </Link>
-              </div>
-            </motion.div>
+        {/* Admission CTA */}
+        <section className="py-32 bg-[#8B1E1A] text-white relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-1/2 h-full bg-white/5 skew-x-12 translate-x-1/2"></div>
+          <div className="max-w-4xl mx-auto px-4 text-center relative z-10">
+            <h2 className="text-4xl lg:text-6xl font-black mb-8" style={{ fontFamily: '"Raleway", sans-serif' }}>Invest in Their <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#D6B25E] to-[#FFA500]">Future.</span></h2>
+            <p className="text-xl text-white/70 mb-12">Our admissions for the upcoming academic year are now open. Secure your child's seat today.</p>
+            <div className="flex flex-col sm:flex-row gap-6 justify-center">
+              <Link href="/admissions" className="px-10 py-5 bg-white text-[#8B1E1A] font-bold rounded-2xl shadow-2xl hover:scale-105 transition-all">Begin Admission</Link>
+              <Link href="/contact" className="px-10 py-5 border-2 border-white/30 text-white font-bold rounded-2xl hover:bg-white/10 transition-all">Schedule a Tour</Link>
+            </div>
           </div>
         </section>
       </div>

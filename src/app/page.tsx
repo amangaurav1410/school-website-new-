@@ -198,13 +198,13 @@ export default function Home() {
                         >
                             <span className="text-5xl mb-4 block">🍁</span>
                             <h2
-                                className="text-4xl lg:text-5xl font-bold mb-6"
+                                className="text-5xl lg:text-6xl font-black mb-8 leading-tight"
                                 style={{
                                     fontFamily: "'Raleway', Arial, Helvetica, sans-serif",
-                                    color: '#3B1A17'
+                                    color: '#1A1A1A'
                                 }}
                             >
-                                The Mapleford Edge
+                                The Mapleford <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#D6B25E] to-[#FFA500]">Edge</span>
                             </h2>
                             <div className="space-y-5 text-lg" style={{ color: '#4F4F4F', lineHeight: '1.8', fontFamily: '"Lato", Arial, Helvetica, sans-serif' }}>
                                 <p className="text-xl font-medium" style={{ color: '#8B1E1A', fontFamily: '"Lato", Arial, Helvetica, sans-serif' }}>
@@ -277,10 +277,10 @@ export default function Home() {
                         >
                             <span className="text-5xl mb-4 block">📚</span>
                             <h2
-                                className="text-4xl lg:text-5xl font-bold mb-6"
-                                style={{ fontFamily: "'Raleway', Arial, Helvetica, sans-serif", color: '#3B1A17' }}
+                                className="text-5xl lg:text-6xl font-black mb-8 leading-tight"
+                                style={{ fontFamily: "'Raleway', Arial, Helvetica, sans-serif", color: '#1A1A1A' }}
                             >
-                                Curriculum
+                                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#D6B25E] to-[#FFA500]">Curriculum</span>
                             </h2>
                             <h3 className="text-2xl font-semibold mb-6" style={{ color: '#8B1E1A' }}>
                                 A Seamless Blend of Two Powerful Systems
@@ -328,7 +328,7 @@ export default function Home() {
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent"></div>
                                 <div className="absolute bottom-6 left-6 bg-white/90 backdrop-blur-sm p-4 rounded-xl shadow-lg border border-[#D6B25E]/20">
                                     <p className="font-bold text-[#8B1E1A]">Global Standards.</p>
-                                    <p className="font-bold text-[#3B1A17]">Indian Values.</p>
+                                    <p className="font-bold text-[#1A1A1A]">Indian Values.</p>
                                 </div>
                             </motion.div>
                         </motion.div>
@@ -342,10 +342,10 @@ export default function Home() {
                     <div className="text-center mb-16">
                         <span className="text-5xl mb-4 block">🎓</span>
                         <h2
-                            className="text-4xl lg:text-5xl font-bold mb-6"
-                            style={{ fontFamily: "'Raleway', Arial, Helvetica, sans-serif", color: '#3B1A17' }}
+                            className="text-5xl lg:text-6xl font-black mb-8 leading-tight"
+                            style={{ fontFamily: "'Raleway', Arial, Helvetica, sans-serif", color: '#1A1A1A' }}
                         >
-                            The Continuum of Learning
+                            The Continuum of <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#D6B25E] to-[#FFA500]">Learning</span>
                         </h2>
                         <p className="text-xl max-w-4xl mx-auto" style={{ color: '#4F4F4F', lineHeight: '1.8', fontFamily: '"Lato", Arial, Helvetica, sans-serif' }}>
                             Every stage of learning is a milestone in growth — thoughtfully designed to nurture young minds
@@ -396,7 +396,7 @@ export default function Home() {
                                 <div className="p-8 text-center" style={{ background: stage.color }}>
                                     <h3
                                         className="text-2xl font-bold mb-2"
-                                        style={{ fontFamily: "'Raleway', Arial, Helvetica, sans-serif", color: '#3B1A17' }}
+                                        style={{ fontFamily: "'Raleway', Arial, Helvetica, sans-serif", color: '#1A1A1A' }}
                                     >
                                         {stage.stage}
                                     </h3>
@@ -455,7 +455,7 @@ export default function Home() {
                                     <div className="relative z-10 flex items-center w-full">
                                         <span className="text-4xl mr-6 bg-gray-50 group-hover:bg-white w-16 h-16 flex items-center justify-center rounded-full shadow-sm group-hover:shadow-md transition-all duration-500 group-hover:scale-110">{item.icon}</span>
                                         <div className="text-left flex-grow">
-                                            <h4 className="text-2xl font-bold text-[#3B1A17] group-hover:text-black transition-colors duration-300" style={{ fontFamily: "'Raleway', sans-serif" }}>{item.title}</h4>
+                                            <h4 className="text-2xl font-bold text-[#1A1A1A] group-hover:text-black transition-colors duration-300" style={{ fontFamily: "'Raleway', sans-serif" }}>{item.title}</h4>
                                             <p className="text-[#8B1E1A] font-medium italic text-sm group-hover:text-[#5A1411] transition-colors duration-300" style={{ fontFamily: '"Lato", sans-serif' }}>{item.query}</p>
                                         </div>
                                         <motion.div
@@ -486,7 +486,7 @@ export default function Home() {
                                 💡
                             </motion.span>
 
-                            <h2 className="text-5xl lg:text-6xl font-black mb-8 leading-tight" style={{ color: '#3B1A17', fontFamily: "'Raleway', sans-serif" }}>
+                            <h2 className="text-5xl lg:text-6xl font-black mb-8 leading-tight" style={{ color: '#1A1A1A', fontFamily: "'Raleway', sans-serif" }}>
                                 Where Logic Meets <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#D6B25E] to-[#FFA500]">Imagination</span>
                             </h2>
 
@@ -526,10 +526,10 @@ export default function Home() {
                         >
                             <span className="text-5xl mb-4 block">🏫</span>
                             <h2
-                                className="text-4xl lg:text-5xl font-bold mb-6"
-                                style={{ fontFamily: "'Raleway', Arial, Helvetica, sans-serif", color: '#3B1A17' }}
+                                className="text-5xl lg:text-6xl font-black mb-8 leading-tight"
+                                style={{ fontFamily: "'Raleway', Arial, Helvetica, sans-serif", color: '#1A1A1A' }}
                             >
-                                Campus
+                                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#D6B25E] to-[#FFA500]">Campus</span>
                             </h2>
                             <h3 className="text-2xl font-semibold mb-4" style={{ color: '#8B1E1A' }}>
                                 A Space That Opens Horizons
@@ -620,10 +620,10 @@ export default function Home() {
                         >
                             <span className="text-5xl mb-4 block">⚽</span>
                             <h2
-                                className="text-4xl lg:text-5xl font-bold mb-6"
-                                style={{ fontFamily: "'Raleway', Arial, Helvetica, sans-serif", color: '#3B1A17' }}
+                                className="text-5xl lg:text-6xl font-black mb-8 leading-tight"
+                                style={{ fontFamily: "'Raleway', Arial, Helvetica, sans-serif", color: '#1A1A1A' }}
                             >
-                                Sports Arena
+                                Sports <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#D6B25E] to-[#FFA500]">Arena</span>
                             </h2>
                             <p
                                 className="text-2xl font-semibold mb-4"
@@ -675,14 +675,14 @@ export default function Home() {
                             viewport={{ once: true }}
                             variants={fadeInUp}
                             transition={{ duration: 0.8 }}
-                            className="text-[#3B1A17]"
+                            className="text-[#1A1A1A]"
                         >
                             <span className="text-5xl mb-4 block">📝</span>
                             <h2
-                                className="text-4xl lg:text-5xl font-bold mb-4"
+                                className="text-5xl lg:text-6xl font-black mb-8 leading-tight"
                                 style={{ fontFamily: "'Raleway', Arial, Helvetica, sans-serif" }}
                             >
-                                Admission Enquiry
+                                Admission <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#D6B25E] to-[#FFA500]">Enquiry</span>
                             </h2>
                             <h3 className="text-2xl font-semibold mb-6" style={{ color: '#8B1E1A' }}>
                                 Connect with Mapleford

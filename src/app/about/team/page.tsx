@@ -31,7 +31,7 @@ export default function Team() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8 }}
                     className="text-5xl lg:text-7xl font-bold mb-8 leading-tight"
-                    style={{ fontFamily: '"Raleway", sans-serif', color: '#3B1A17' }}
+                    style={{ fontFamily: '"Raleway", sans-serif', color: '#1A1A1A' }}
                   >
                     Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#8B1E1A] to-[#D6B25E]">Team</span>
                   </motion.h1>
@@ -61,7 +61,9 @@ export default function Team() {
                       <div className="absolute -inset-4 bg-[#FDF6E3] rounded-[2rem] -z-10 transform rotate-3"></div>
                       <div className="bg-white p-10 rounded-[2rem] shadow-xl border border-[#D6B25E]/20">
                         <span className="text-4xl mb-6 block">✉️</span>
-                        <h2 className="text-3xl lg:text-4xl font-bold mb-6" style={{ fontFamily: '"Raleway", sans-serif', color: '#3B1A17' }}>Chairman's Message</h2>
+                        <h2 className="text-4xl lg:text-5xl font-black mb-6" style={{ fontFamily: '"Raleway", sans-serif', color: '#1A1A1A' }}>
+                          Chairman's <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#D6B25E] to-[#FFA500]">Message</span>
+                        </h2>
                         <div className="space-y-6 text-lg text-[#4F4F4F] leading-relaxed" style={{ fontFamily: '"Lato", sans-serif' }}>
                           <p>
                             "At Mapleford International School, we believe that education is not merely the transfer of knowledge but the cultivation of character, curiosity, and compassion. Children learn best when they feel valued and inspired to discover who they are."
@@ -71,7 +73,7 @@ export default function Team() {
                           </p>
                         </div>
                         <div className="mt-8 pt-6 border-t border-[#D6B25E]/30">
-                          <p className="font-bold text-xl text-[#3B1A17]">P. Subba Reddy</p>
+                          <p className="font-bold text-xl text-[#1A1A1A]">P. Subba Reddy</p>
                           <p className="text-[#8B1E1A] font-medium">Chairman, Mapleford International School</p>
                         </div>
                       </div>
@@ -116,7 +118,9 @@ export default function Team() {
                       <div className="absolute -inset-4 bg-[#FDF6E3] rounded-[2rem] -z-10 transform -rotate-2"></div>
                       <div className="bg-white p-10 rounded-[2rem] shadow-xl border border-[#D6B25E]/20">
                         <span className="text-4xl mb-6 block">🎓</span>
-                        <h2 className="text-3xl lg:text-4xl font-bold mb-6" style={{ fontFamily: '"Raleway", sans-serif', color: '#3B1A17' }}>Principal's Message</h2>
+                        <h2 className="text-4xl lg:text-5xl font-black mb-6" style={{ fontFamily: '"Raleway", sans-serif', color: '#1A1A1A' }}>
+                          Principal's <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#D6B25E] to-[#FFA500]">Message</span>
+                        </h2>
                         <div className="space-y-6 text-lg text-[#4F4F4F] leading-relaxed" style={{ fontFamily: '"Lato", sans-serif' }}>
                           <p>
                             "Education, to us, is not a race but a journey. It is augmented through attentive listening, thoughtful guidance, and learning experiences that encourage children to think independently."
@@ -126,7 +130,7 @@ export default function Team() {
                           </p>
                         </div>
                         <div className="mt-8 pt-6 border-t border-[#D6B25E]/30">
-                          <p className="font-bold text-xl text-[#3B1A17]">Ms. Sarah Thompson</p>
+                          <p className="font-bold text-xl text-[#1A1A1A]">Ms. Sarah Thompson</p>
                           <p className="text-[#8B1E1A] font-medium">Principal, Mapleford International School</p>
                         </div>
                       </div>
@@ -144,8 +148,8 @@ export default function Team() {
                     viewport={{ once: true }}
                     className="text-center mb-20"
                   >
-                    <h2 className="text-4xl lg:text-5xl font-bold text-[#3B1A17] mb-6" style={{ fontFamily: '"Raleway", sans-serif' }}>
-                      Leadership Team
+                    <h2 className="text-4xl lg:text-5xl font-black text-[#1A1A1A] mb-6" style={{ fontFamily: '"Raleway", sans-serif' }}>
+                      Leadership <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#D6B25E] to-[#FFA500]">Team</span>
                     </h2>
                     <div className="w-24 h-1.5 bg-[#D6B25E] mx-auto rounded-full"></div>
                   </motion.div>
@@ -187,7 +191,7 @@ export default function Team() {
                           />
                         </div>
                         <div className="p-8 text-center bg-white">
-                          <h3 className="text-2xl font-bold text-[#3B1A17] mb-2">{member.name}</h3>
+                          <h3 className="text-2xl font-bold text-[#1A1A1A] mb-2">{member.name}</h3>
                           <p className="text-[#8B1E1A] font-bold uppercase tracking-widest text-sm mb-4">{member.role}</p>
                           <p className="text-gray-600 leading-relaxed text-sm">{member.bio}</p>
                         </div>
@@ -204,14 +208,15 @@ export default function Team() {
                     initial={{ opacity: 0, scale: 0.95 }}
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
-                    className="bg-gradient-to-br from-[#8B1E1A] to-[#5A1411] rounded-[3rem] p-16 shadow-2xl relative overflow-hidden"
+                    className="bg-gradient-to-br from-[#8B1E1A] via-[#A52A2A] to-[#D6B25E] rounded-[3rem] p-16 shadow-2xl relative overflow-hidden"
                   >
                     <div className="absolute top-0 left-0 w-full h-full bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10"></div>
+                    <div className="absolute top-0 right-0 w-1/2 h-full bg-white/5 rounded-full blur-3xl"></div>
                     <div className="relative z-10">
-                      <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6" style={{ fontFamily: '"Raleway", sans-serif' }}>
-                        Join Our Mission
+                      <h2 className="text-4xl lg:text-5xl font-black text-white mb-6" style={{ fontFamily: '"Raleway", sans-serif' }}>
+                        Join Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#D6B25E] to-[#FFA500]">Mission</span>
                       </h2>
-                      <p className="text-xl text-[#FDF6E3]/90 mb-10 max-w-2xl mx-auto leading-relaxed">
+                      <p className="text-xl text-white/90 mb-10 max-w-2xl mx-auto leading-relaxed">
                         Be part of a community dedicated to shaping young minds and creating future leaders grounded in integrity.
                       </p>
                       <div className="flex flex-col sm:flex-row gap-6 justify-center">
@@ -223,7 +228,7 @@ export default function Team() {
                         </Link>
                         <Link
                           href="/contact"
-                          className="bg-transparent text-white border-2 border-white/30 px-10 py-4 rounded-2xl font-bold text-lg hover:bg-white/10 transition-all duration-300"
+                          className="bg-transparent text-white border-2 border-white/40 px-10 py-4 rounded-2xl font-bold text-lg hover:bg-white/10 transition-all duration-300"
                         >
                           Contact Us
                         </Link>
